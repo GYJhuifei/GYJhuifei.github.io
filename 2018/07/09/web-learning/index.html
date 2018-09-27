@@ -66,7 +66,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="sql," />
 
 
 
@@ -77,17 +77,18 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="sql注入sql注入的产生及原理以下是我对目前所学的sql注入的一些理解  1.没有对页面提交的参数或者用户提交的数据进行合理有效的过滤 2.不合理的数据库的配置 3.对查询语句提供了过高的权限(例如查询新闻只需查询的权限，却提供了增删查改的权限)  上面这些漏洞都可能导致用户构造的带有恶意代码的参数提交后被服务器执行，使原来的查询语句的目的发生改变。 下面有一个简单的例子 1234567891">
+<meta name="keywords" content="sql">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://www.mr-guo.xin/2018/03/15/hello-world/index.html">
+<meta property="og:title" content="我的web安全学习之---------入门">
+<meta property="og:url" content="http://www.mr-guo.xin/2018/07/09/web-learning/index.html">
 <meta property="og:site_name" content="super&#x2F;guo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="sql注入sql注入的产生及原理以下是我对目前所学的sql注入的一些理解  1.没有对页面提交的参数或者用户提交的数据进行合理有效的过滤 2.不合理的数据库的配置 3.对查询语句提供了过高的权限(例如查询新闻只需查询的权限，却提供了增删查改的权限)  上面这些漏洞都可能导致用户构造的带有恶意代码的参数提交后被服务器执行，使原来的查询语句的目的发生改变。 下面有一个简单的例子 1234567891">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-06T02:23:45.100Z">
+<meta property="og:updated_time" content="2018-07-10T08:51:21.748Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="我的web安全学习之---------入门">
+<meta name="twitter:description" content="sql注入sql注入的产生及原理以下是我对目前所学的sql注入的一些理解  1.没有对页面提交的参数或者用户提交的数据进行合理有效的过滤 2.不合理的数据库的配置 3.对查询语句提供了过高的权限(例如查询新闻只需查询的权限，却提供了增删查改的权限)  上面这些漏洞都可能导致用户构造的带有恶意代码的参数提交后被服务器执行，使原来的查询语句的目的发生改变。 下面有一个简单的例子 1234567891">
 
 
 
@@ -117,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://www.mr-guo.xin/2018/03/15/hello-world/"/>
+  <link rel="canonical" href="http://www.mr-guo.xin/2018/07/09/web-learning/"/>
 
 
 
 
 
-  <title>Hello World | super/guo</title>
+  <title>我的web安全学习之---------入门 | super/guo</title>
   
 
 
@@ -294,7 +295,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.mr-guo.xin/2018/03/15/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://www.mr-guo.xin/2018/07/09/web-learning/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="super/guo">
@@ -311,7 +312,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">我的web安全学习之---------入门</h1>
         
 
         <div class="post-meta">
@@ -323,8 +324,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-15T20:24:23+08:00">
-                2018-03-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-09T09:01:17+08:00">
+                2018-07-09
               </time>
             
 
@@ -333,6 +334,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web-Security/" itemprop="url" rel="index">
+                    <span itemprop="name">Web-Security</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -355,7 +378,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  78
+                  1,146
                 </span>
               
 
@@ -371,7 +394,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  4
                 </span>
               
             </div>
@@ -392,17 +415,47 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <!-- ## sql注入入门总结 -->
+<h2 id="sql注入"><a href="#sql注入" class="headerlink" title="sql注入"></a>sql注入</h2><h3 id="sql注入的产生及原理"><a href="#sql注入的产生及原理" class="headerlink" title="sql注入的产生及原理"></a>sql注入的产生及原理</h3><pre><code>以下是我对目前所学的sql注入的一些理解
 
+1.没有对页面提交的参数或者用户提交的数据进行合理有效的过滤
+2.不合理的数据库的配置
+3.对查询语句提供了过高的权限(例如查询新闻只需查询的权限，却提供了增删查改的权限)
+
+上面这些漏洞都可能导致用户构造的带有恶意代码的参数提交后被服务器执行，使原来的查询语句的目的发生改变。
+下面有一个简单的例子
+</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">http://www.news.com?Id=1   --链接为虚构</span><br><span class="line">上面的链接用于查询返回id为1的新闻内容,它的查询语句如下:</span><br><span class="line">select content</span><br><span class="line">from news</span><br><span class="line"><span class="built_in">where</span> Id = 1 </span><br><span class="line"></span><br><span class="line">在没有任何过滤的情况下构造如下id参数的值</span><br><span class="line">http://www.news.com?Id=1 or 1=1</span><br><span class="line"></span><br><span class="line">查询语句为</span><br><span class="line">select content</span><br><span class="line">from news</span><br><span class="line"><span class="built_in">where</span> Id = 1 or 1=1</span><br><span class="line">上面的注入导致查询的Id的值永远为真，那么结果就是会返回表中所有新闻的内容</span><br></pre></td></tr></table></figure>
+<h3 id="sql注入的类型"><a href="#sql注入的类型" class="headerlink" title="sql注入的类型"></a>sql注入的类型</h3><pre><code>我目前学习到以及使用过的有以下内容
+
+1.联合查询
+2.盲注(布尔盲注，时间盲注，报错盲注)
+
+还有一种是我还没接触到的堆查询注入
+</code></pre><h3 id="sql注入的危害"><a href="#sql注入的危害" class="headerlink" title="sql注入的危害"></a>sql注入的危害</h3><pre><code>目前我所了解到以及见过的危害有下面几点
+
+1.数据库信息泄露，最常见的就是脱库
+2.木马植入，可以对网站的访问者发起攻击
+3.篡改网站内容，会影响网站用户的使用
+4.植入后门，可以随时操作网站的服务器
+</code></pre><h3 id="sql注入的简单利用"><a href="#sql注入的简单利用" class="headerlink" title="sql注入的简单利用"></a>sql注入的简单利用</h3><h2 id="XSS-跨站脚本攻击"><a href="#XSS-跨站脚本攻击" class="headerlink" title="XSS(跨站脚本攻击)"></a>XSS(跨站脚本攻击)</h2><h3 id="XSS的产生和原理"><a href="#XSS的产生和原理" class="headerlink" title="XSS的产生和原理"></a>XSS的产生和原理</h3><pre><code>类似于sql注入，没有对用户输入的内容进行合理的过滤，导致页面嵌入的html/script可以被浏览器解析执行。
+</code></pre><h3 id="XSS的类型"><a href="#XSS的类型" class="headerlink" title="XSS的类型"></a>XSS的类型</h3><pre><code>1.持久型(恶意代码储存在数据库中，每次访问页面都会触发)
+2.非持久型(前提是需要构造恶意链接，只会在访问时触发)
+</code></pre><h3 id="XSS的危害"><a href="#XSS的危害" class="headerlink" title="XSS的危害"></a>XSS的危害</h3><pre><code>XSS造成的危害有很多，常见的有盗取用户cookie。
+</code></pre><h3 id="XSS的简单利用"><a href="#XSS的简单利用" class="headerlink" title="XSS的简单利用"></a>XSS的简单利用</h3><h2 id="CSRF-跨站脚本欺骗"><a href="#CSRF-跨站脚本欺骗" class="headerlink" title="CSRF(跨站脚本欺骗)"></a>CSRF(跨站脚本欺骗)</h2><h3 id="CSRF的产生和原理"><a href="#CSRF的产生和原理" class="headerlink" title="CSRF的产生和原理"></a>CSRF的产生和原理</h3><pre><code>服务端无法分辨请求是否是用户正常发起的，就可以在用户访问恶意页面是在用户不知情的情况下利用用户储存在浏览器中的验证信息发起请求。
+</code></pre><h3 id="CSRF的简单利用"><a href="#CSRF的简单利用" class="headerlink" title="CSRF的简单利用"></a>CSRF的简单利用</h3><h2 id="文件上传漏洞"><a href="#文件上传漏洞" class="headerlink" title="文件上传漏洞"></a>文件上传漏洞</h2><h3 id="文件上传漏洞的产生和原理"><a href="#文件上传漏洞的产生和原理" class="headerlink" title="文件上传漏洞的产生和原理"></a>文件上传漏洞的产生和原理</h3><pre><code>文件上传功能在大多数的网站上都能见到，常见的有图片上传，文档上传。
+如果没有对上传的文件进行合理的校验，就会导致可以向服务器上传任意文件。
+有一部分漏洞的产生是因为文件解析漏洞。
+</code></pre><h3 id="文件上传漏洞的类型"><a href="#文件上传漏洞的类型" class="headerlink" title="文件上传漏洞的类型"></a>文件上传漏洞的类型</h3><pre><code>1.前端绕过(javascript)
+2.后端绕过
+</code></pre><h3 id="文件上传漏洞的危害"><a href="#文件上传漏洞的危害" class="headerlink" title="文件上传漏洞的危害"></a>文件上传漏洞的危害</h3><pre><code>1.向服务器植入后门
+</code></pre><h3 id="文件上传漏洞的简单利用"><a href="#文件上传漏洞的简单利用" class="headerlink" title="文件上传漏洞的简单利用"></a>文件上传漏洞的简单利用</h3><h2 id="文件包含漏洞"><a href="#文件包含漏洞" class="headerlink" title="文件包含漏洞"></a>文件包含漏洞</h2><h3 id="文件包含漏洞的产生和原理"><a href="#文件包含漏洞的产生和原理" class="headerlink" title="文件包含漏洞的产生和原理"></a>文件包含漏洞的产生和原理</h3><pre><code>文件包含是因为需求才产生的，也就是将一段需要在多个地方调用的代码单独写在一个文件内，而每次需要的时候只要用php的文件包含函数来调用这一个文件，能减少页面的代码量。
+如果没有对引用的文件进行合理的校验，就可能导致任意文件都能被包含。
+</code></pre><h3 id="文件包含漏洞的类型"><a href="#文件包含漏洞的类型" class="headerlink" title="文件包含漏洞的类型"></a>文件包含漏洞的类型</h3><pre><code>1.本地包含
+2.远程包含(需要在php.ini文件中修改配置项)
+</code></pre><h3 id="文件包含漏洞的危害"><a href="#文件包含漏洞的危害" class="headerlink" title="文件包含漏洞的危害"></a>文件包含漏洞的危害</h3><pre><code>1.可以执行任意脚本代码
+2.可以控制服务器
+</code></pre><h2 id="命令注入"><a href="#命令注入" class="headerlink" title="命令注入"></a>命令注入</h2><h3 id="命令注入的产生和原理"><a href="#命令注入的产生和原理" class="headerlink" title="命令注入的产生和原理"></a>命令注入的产生和原理</h3><pre><code>类似于sql注入，在php中，存在多个可以执行系统命令的函数，在函数执行时没有对用户输入的内容进行合理的过滤，导致不被期望输入的系统命令可以被解析执行。
+</code></pre><h3 id="命令注入漏洞危害"><a href="#命令注入漏洞危害" class="headerlink" title="命令注入漏洞危害"></a>命令注入漏洞危害</h3><h3 id="命令注入漏洞简单利用"><a href="#命令注入漏洞简单利用" class="headerlink" title="命令注入漏洞简单利用"></a>命令注入漏洞简单利用</h3><h2 id="弱口令"><a href="#弱口令" class="headerlink" title="弱口令"></a>弱口令</h2><h2 id="对webgoat中一些题目的理解"><a href="#对webgoat中一些题目的理解" class="headerlink" title="对webgoat中一些题目的理解"></a>对webgoat中一些题目的理解</h2><h3 id="Access-Control-Flaws-访问控制缺陷"><a href="#Access-Control-Flaws-访问控制缺陷" class="headerlink" title="Access Control Flaws(访问控制缺陷)"></a>Access Control Flaws(访问控制缺陷)</h3><h3 id="AJAX-Security"><a href="#AJAX-Security" class="headerlink" title="AJAX Security"></a>AJAX Security</h3><h3 id="Authentication-Flaws-认证缺陷"><a href="#Authentication-Flaws-认证缺陷" class="headerlink" title="Authentication Flaws(认证缺陷)"></a>Authentication Flaws(认证缺陷)</h3>
       
     </div>
     
@@ -417,6 +470,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/sql/" rel="tag"><i class="fa fa-tag"></i> sql</a>
+          
+        </div>
+      
 
       
       
@@ -426,15 +485,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/07/06/sql-labs/" rel="next" title="sqli-labs解题思路">
+                <i class="fa fa-chevron-left"></i> sqli-labs解题思路
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/06/sql-labs/" rel="prev" title="sqli-labs解题思路">
-                sqli-labs解题思路 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -586,7 +645,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#sql注入"><span class="nav-text">sql注入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sql注入的产生及原理"><span class="nav-text">sql注入的产生及原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sql注入的类型"><span class="nav-text">sql注入的类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sql注入的危害"><span class="nav-text">sql注入的危害</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sql注入的简单利用"><span class="nav-text">sql注入的简单利用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XSS-跨站脚本攻击"><span class="nav-text">XSS(跨站脚本攻击)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#XSS的产生和原理"><span class="nav-text">XSS的产生和原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XSS的类型"><span class="nav-text">XSS的类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XSS的危害"><span class="nav-text">XSS的危害</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XSS的简单利用"><span class="nav-text">XSS的简单利用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSRF-跨站脚本欺骗"><span class="nav-text">CSRF(跨站脚本欺骗)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CSRF的产生和原理"><span class="nav-text">CSRF的产生和原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSRF的简单利用"><span class="nav-text">CSRF的简单利用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件上传漏洞"><span class="nav-text">文件上传漏洞</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件上传漏洞的产生和原理"><span class="nav-text">文件上传漏洞的产生和原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件上传漏洞的类型"><span class="nav-text">文件上传漏洞的类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件上传漏洞的危害"><span class="nav-text">文件上传漏洞的危害</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件上传漏洞的简单利用"><span class="nav-text">文件上传漏洞的简单利用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件包含漏洞"><span class="nav-text">文件包含漏洞</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件包含漏洞的产生和原理"><span class="nav-text">文件包含漏洞的产生和原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件包含漏洞的类型"><span class="nav-text">文件包含漏洞的类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件包含漏洞的危害"><span class="nav-text">文件包含漏洞的危害</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令注入"><span class="nav-text">命令注入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命令注入的产生和原理"><span class="nav-text">命令注入的产生和原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令注入漏洞危害"><span class="nav-text">命令注入漏洞危害</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令注入漏洞简单利用"><span class="nav-text">命令注入漏洞简单利用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#弱口令"><span class="nav-text">弱口令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对webgoat中一些题目的理解"><span class="nav-text">对webgoat中一些题目的理解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Access-Control-Flaws-访问控制缺陷"><span class="nav-text">Access Control Flaws(访问控制缺陷)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AJAX-Security"><span class="nav-text">AJAX Security</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Authentication-Flaws-认证缺陷"><span class="nav-text">Authentication Flaws(认证缺陷)</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -606,7 +665,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
@@ -626,7 +685,7 @@
 
 <div class="powered-by">
 <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
-  本站访客数:<span id="busuanzi_value_site_uv">99999</span>
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
 </span>
 </div>
 
@@ -635,11 +694,11 @@
 
 
 
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 
-<div class="theme-info">
-  <div class="powered-by"></div>
-  <span class="post-count">博客全站共2.8k字</span>
-</div>
+
+
+
         
 
 

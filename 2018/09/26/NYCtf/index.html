@@ -85,7 +85,7 @@
 <meta property="og:site_name" content="super&#x2F;guo">
 <meta property="og:description" content="南邮ctf(无图)签到题查看页面源代码就ok了">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-29T00:12:12.624Z">
+<meta property="og:updated_time" content="2018-10-06T07:41:44.076Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NYCtf">
 <meta name="twitter:description" content="南邮ctf(无图)签到题查看页面源代码就ok了">
@@ -378,7 +378,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,133
+                  1,266
                 </span>
               
 
@@ -448,7 +448,13 @@
 <h3 id="pass-check"><a href="#pass-check" class="headerlink" title="pass check"></a>pass check</h3><p>检查题目提供的源码<br>先使用数组成功绕过得到flag</p>
 <h3 id="密码重置"><a href="#密码重置" class="headerlink" title="密码重置"></a>密码重置</h3><p>发现链接中有base64之后的值，转换后发现是用户名，修改为admin做base64<br>post添加以下参数：<br>user=admin&amp;newpass=123&amp;vcode=1234<br>提交返回flag</p>
 <h3 id="综合题"><a href="#综合题" class="headerlink" title="综合题"></a>综合题</h3><p>打开页面发现是一串jsfuck，复制到控制台页面返回1bc29b36f623ba82aaf6724fd3b16718.php<br>访问此文件出现：哈哈哈哈哈哈你上当啦，这里什么都没有，TIP在我脑袋里<br>抓包发现响应包中的提示：history of bash<br>查了一下资料，需要访问这个文件  .bash_history<br>发现一个命令行，发现flagbak.zip，下载解压后发现flag</p>
-<h3 id="file-get-contents"><a href="#file-get-contents" class="headerlink" title="file_get_contents"></a>file_get_contents</h3><p>进入后页面空白，查看源代码发现代码段，通过php伪协议php://input读取数据流<br>payload： view-source:<a href="http://chinalover.sinaapp.com/web23/?file=php://input" target="_blank" rel="noopener">http://chinalover.sinaapp.com/web23/?file=php://input</a><br>data： meizijiu<br>返回flag</p>
+<p>###sql注入2</p>
+<pre><code>查看提供的源码
+</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">  <span class="keyword">if</span>(<span class="variable">$_POST</span>[user] &amp;&amp; <span class="variable">$_POST</span>[pass]) &#123;</span><br><span class="line">    mysql_connect(SAE_MYSQL_HOST_M . <span class="string">':'</span> . SAE_MYSQL_PORT,SAE_MYSQL_USER,SAE_MYSQL_PASS);</span><br><span class="line">    mysql_select_db(SAE_MYSQL_DB);</span><br><span class="line">    <span class="variable">$user</span> = <span class="variable">$_POST</span>[user];</span><br><span class="line">    <span class="variable">$pass</span> = md5(<span class="variable">$_POST</span>[pass]);</span><br><span class="line">    <span class="variable">$query</span> = @mysql_fetch_array(mysql_query(<span class="string">"select pw from ctf where user='<span class="variable">$user</span>'"</span>)); //根据输入的用户名查找用户口令</span><br><span class="line">    <span class="keyword">if</span> ((<span class="variable">$query</span>[pw]) &amp;&amp; (!strcasecmp(<span class="variable">$pass</span>, <span class="variable">$query</span>[pw]))) &#123;     //判断查询出的用户口令是否和用户输入的口令的md5值相等</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"&lt;p&gt;Logged in! Key: ntcf&#123;**************&#125; &lt;/p&gt;"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="built_in">echo</span>(<span class="string">"&lt;p&gt;Log in failure!&lt;/p&gt;"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<pre><code>postdate：
+  user=&apos; union select &apos;c4ca4238a0b923820dcc509a6f75849b    //使查询语句返回为1的md5值
+  pass=1
+</code></pre><h3 id="file-get-contents"><a href="#file-get-contents" class="headerlink" title="file_get_contents"></a>file_get_contents</h3><p>进入后页面空白，查看源代码发现代码段，通过php伪协议php://input读取数据流<br>payload： view-source:<a href="http://chinalover.sinaapp.com/web23/?file=php://input" target="_blank" rel="noopener">http://chinalover.sinaapp.com/web23/?file=php://input</a><br>data： meizijiu<br>返回flag</p>
 <h3 id="变量覆盖-1"><a href="#变量覆盖-1" class="headerlink" title="变量覆盖"></a>变量覆盖</h3><p>右键查看源代码，构造payload：view-source:<a href="http://chinalover.sinaapp.com/web24/?name=meizijiu233" target="_blank" rel="noopener">http://chinalover.sinaapp.com/web24/?name=meizijiu233</a><br>返回flag</p>
 
       
@@ -710,7 +716,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共3.5k字</span>
+  <span class="post-count">博客全站共3.7k字</span>
 </div>
         
 

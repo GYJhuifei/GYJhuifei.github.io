@@ -77,13 +77,13 @@
 
 
 
-<meta name="description" content="基本训练场web密码泄露进入页面出现登录界面，观察一下发现title是个文件，访问出现密码列表  用burp爆破得到密码  登录时提示失败，检查页面源码发现输入框限制字符长度为5，修改后成功提示：这里没有flag 于是跑去检查响应包，发现响应头有个newpage参数，值是固定的，用base64解开得到一个文件名  访问后是一个留言界面  尝试留言提示未登录，并且页面没有登录入口，于是抓包查看  i">
+<meta name="description" content="基本训练场web密码泄露">
 <meta name="keywords" content="ctf">
 <meta property="og:type" content="article">
 <meta property="og:title" content="whalectf">
 <meta property="og:url" content="http://www.mr-guo.xin/2018/10/09/whalectf/index.html">
 <meta property="og:site_name" content="super&#x2F;guo">
-<meta property="og:description" content="基本训练场web密码泄露进入页面出现登录界面，观察一下发现title是个文件，访问出现密码列表  用burp爆破得到密码  登录时提示失败，检查页面源码发现输入框限制字符长度为5，修改后成功提示：这里没有flag 于是跑去检查响应包，发现响应头有个newpage参数，值是固定的，用base64解开得到一个文件名  访问后是一个留言界面  尝试留言提示未登录，并且页面没有登录入口，于是抓包查看  i">
+<meta property="og:description" content="基本训练场web密码泄露">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.mr-guo.xin/2018/10/09/whalectf/mmxl01.png">
 <meta property="og:image" content="http://www.mr-guo.xin/2018/10/09/whalectf/mmxl02.png">
@@ -91,10 +91,10 @@
 <meta property="og:image" content="http://www.mr-guo.xin/2018/10/09/whalectf/mmxl04.png">
 <meta property="og:image" content="http://www.mr-guo.xin/2018/10/09/whalectf/mmxl05.png">
 <meta property="og:image" content="http://www.mr-guo.xin/2018/10/09/whalectf/mmxl06.png">
-<meta property="og:updated_time" content="2018-10-09T01:17:19.127Z">
+<meta property="og:updated_time" content="2018-10-09T02:51:30.486Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="whalectf">
-<meta name="twitter:description" content="基本训练场web密码泄露进入页面出现登录界面，观察一下发现title是个文件，访问出现密码列表  用burp爆破得到密码  登录时提示失败，检查页面源码发现输入框限制字符长度为5，修改后成功提示：这里没有flag 于是跑去检查响应包，发现响应头有个newpage参数，值是固定的，用base64解开得到一个文件名  访问后是一个留言界面  尝试留言提示未登录，并且页面没有登录入口，于是抓包查看  i">
+<meta name="twitter:description" content="基本训练场web密码泄露">
 <meta name="twitter:image" content="http://www.mr-guo.xin/2018/10/09/whalectf/mmxl01.png">
 
 
@@ -422,7 +422,8 @@
       
 
       
-        <h2 id="基本训练场web"><a href="#基本训练场web" class="headerlink" title="基本训练场web"></a>基本训练场web</h2><h3 id="密码泄露"><a href="#密码泄露" class="headerlink" title="密码泄露"></a>密码泄露</h3><pre><code>进入页面出现登录界面，观察一下发现title是个文件，访问出现密码列表
+        <h2 id="基本训练场web"><a href="#基本训练场web" class="headerlink" title="基本训练场web"></a>基本训练场web</h2><h3 id="密码泄露"><a href="#密码泄露" class="headerlink" title="密码泄露"></a>密码泄露</h3><a id="more"></a>
+<pre><code>进入页面出现登录界面，观察一下发现title是个文件，访问出现密码列表
 </code></pre><p><img src="/2018/10/09/whalectf/mmxl01.png" alt=""></p>
 <pre><code>用burp爆破得到密码
 </code></pre><p><img src="/2018/10/09/whalectf/mmxl02.png" alt=""></p>

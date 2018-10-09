@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[whalectf]]></title>
     <url>%2F2018%2F10%2F09%2Fwhalectf%2F</url>
-    <content type="text"><![CDATA[基本训练场web密码泄露进入页面出现登录界面，观察一下发现title是个文件，访问出现密码列表 用burp爆破得到密码 登录时提示失败，检查页面源码发现输入框限制字符长度为5，修改后成功提示：这里没有flag 于是跑去检查响应包，发现响应头有个newpage参数，值是固定的，用base64解开得到一个文件名 访问后是一个留言界面 尝试留言提示未登录，并且页面没有登录入口，于是抓包查看 islogin根据字面意思是用来判断登录状态，尝试修改为1后提交请求，发现留言成功，提示消息变为：你没有权限访问 继续检查请求包，发现有个userlevel参数，可能是用来判断用户权限的字段，尝试修改为admin，xiaohei。 仔细想了想，可能是数据库的默认账户root，提交后发现成功！ 在响应包的setcookie字段得到flag。]]></content>
+    <content type="text"><![CDATA[基本训练场web密码泄露 进入页面出现登录界面，观察一下发现title是个文件，访问出现密码列表 用burp爆破得到密码 登录时提示失败，检查页面源码发现输入框限制字符长度为5，修改后成功提示：这里没有flag 于是跑去检查响应包，发现响应头有个newpage参数，值是固定的，用base64解开得到一个文件名 访问后是一个留言界面 尝试留言提示未登录，并且页面没有登录入口，于是抓包查看 islogin根据字面意思是用来判断登录状态，尝试修改为1后提交请求，发现留言成功，提示消息变为：你没有权限访问 继续检查请求包，发现有个userlevel参数，可能是用来判断用户权限的字段，尝试修改为admin，xiaohei。 仔细想了想，可能是数据库的默认账户root，提交后发现成功！ 在响应包的setcookie字段得到flag。]]></content>
       <categories>
         <category>Web-Security</category>
       </categories>

